@@ -1,0 +1,6 @@
+{
+    "someKey": 42.0,
+    "anotherKey": {
+        "someNestedKey": true
+    }
+}

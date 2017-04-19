@@ -1,4 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
-    <elements/>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="11759" systemVersion="15G31" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="ArtEntity" representedClassName="ArtEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="thumbnailURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="uid" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <relationship name="gallery" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="LocationEntity" syncable="YES"/>
+    </entity>
+    <entity name="BeaconEntity" representedClassName="BeaconEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="alias" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="major" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="minor" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="uuid" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="LocationEntity" representedClassName="LocationEntity" syncable="YES" codeGenerationType="class">
+        <attribute name="galleryShort" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="artObjects" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ArtEntity" syncable="YES"/>
+        <relationship name="beacons" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="BeaconEntity" syncable="YES"/>
+    </entity>
+    <entity name="VibeEntity" representedClassName="VibeEntity" syncable="YES" codeGenerationType="class"/>
+    <elements>
+        <element name="LocationEntity" positionX="-272" positionY="45" width="128" height="88"/>
+        <element name="BeaconEntity" positionX="-81" positionY="108" width="128" height="105"/>
+        <element name="ArtEntity" positionX="-479" positionY="54" width="128" height="90"/>
+        <element name="VibeEntity" positionX="9" positionY="18" width="128" height="45"/>
+    </elements>
 </model>
