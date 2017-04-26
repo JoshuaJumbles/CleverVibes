@@ -26,8 +26,9 @@ class IntroViewController: UIPageViewController, UIPageViewControllerDataSource 
         dataSource = self
         
         GalleryDataSource.sharedInstance;
+        GalleryDataSource.sharedInstance.loadAllVibes()
 //        GalleryDataSource.sharedInstance.startDownloadingAllObjects()
-//        GalleryDataSource.sharedInstance.startSyncingDatabaseToLocalJSON();
+        GalleryDataSource.sharedInstance.startSyncingDatabaseToLocalJSON();
 //        print(GalleryDataSource.sharedInstance.allGalleryNames())
     }
     

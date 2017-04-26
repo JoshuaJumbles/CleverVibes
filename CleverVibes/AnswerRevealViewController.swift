@@ -20,6 +20,10 @@ class AnswerRevealViewController:UIViewController{
     
     @IBOutlet weak var vibeClue: UILabel!
     
+    @IBOutlet weak var cleverButton: UIButton!
+    @IBOutlet weak var rudeButton: UIButton!
+    
+    
     var vibe = VibeObject()
     var artChoice = ArtObject()
     
@@ -51,19 +55,25 @@ class AnswerRevealViewController:UIViewController{
     
     override func viewDidLoad() {
         let correct = (artChoice.objectNumber == vibe.answerObjectNumber);
+        if(correct){
+            ScoreController.shareScoreInstance.addPoints(points: 100);
+        }
+        ScoreController.shareScoreInstance.addUsedVibe(vibeId: vibe.uuid);
         
-        answerStatusLabel.text = (correct) ? "CORRECT!" : "Darn";
+        answerStatusLabel.text = (correct) ? "CORRECT!" : "INCORRECT";
         answerStatusLabel.textColor = (correct) ? UIColor.green: UIColor.red;
         
         vibeClue.text = vibe.clue
     }
     
-    
-    @IBAction func didPressHubReturn(_ sender: Any) {
-        
-//        navigationController?.popToRootViewController(animated: true)
-        dismiss(animated: true) { 
+    @IBAction func didPressDone(_ sender: Any) {
+        dismiss(animated: true) {
             self.navController?.popToRootViewController(animated: true);
         }
+    }
+    
+    @IBAction func didPressRude(_ sender: Any) {
+    }
+    @IBAction func didPressClever(_ sender: Any) {
     }
 }

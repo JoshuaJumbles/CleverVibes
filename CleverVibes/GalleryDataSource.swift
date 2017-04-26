@@ -13,6 +13,7 @@ import Sync
 
 class GalleryDataSource {
     static let sharedInstance = GalleryDataSource()
+    
     let pageCount = 500;
     let hardCodedLimit = 7500;
     var totalOffset = 0;
@@ -30,6 +31,7 @@ class GalleryDataSource {
     let contentfulSpaceId = "dnednuw2i49p";
     let contentfulAccessToken = "34ed7ab08c1d6ab8d56318f6629180133c0ca04b52566f394a7009b7bea80efd"
     
+    var collectionRefreshDelegate : GalleryCollectionViewController?
     
     
     init(){
@@ -41,6 +43,7 @@ class GalleryDataSource {
         
         loadDataFromLocalJSON();
         loadAllVibes();
+//        ScoreController.sharedInstance;
     }
     
     func loadDataFromLocalJSON(){
@@ -71,6 +74,7 @@ class GalleryDataSource {
     
     func loadAllVibes(){
         do{
+            
             let url = "https://cdn.contentful.com/spaces/\(contentfulSpaceId)/entries?access_token=\(contentfulAccessToken)";
             Alamofire.request(url).responseJSON { response in
                 print(response.request)  // original URL request
@@ -81,13 +85,29 @@ class GalleryDataSource {
                 if let JSON = response.result.value as? [String:Any] {
                     print("JSON: \(JSON)")
                     if let itemList = JSON["items"] as? [[String:Any]]{
+                        self.loadedVibes = []
                         for item in itemList{
+                            var vibeObject : VibeObject?
                             if let fields = item["fields"] as? [String:Any]{
-                                var vibeObject = VibeObject(config: fields);
+                                vibeObject = VibeObject(config: fields);
 //                                print("FIELDS:\(fields)");
-                                self.loadedVibes.append(vibeObject)
+                                
                                 
                             }
+                            
+                            if let sys = item["sys"] as? [String:Any]{
+                                if let id = sys["id"] as? String{
+                                    vibeObject?.uuid = id;
+                                }
+                            }
+                            if(vibeObject != nil){
+                                self.loadedVibes.append(vibeObject!)
+                            }
+                            
+                        }
+                        
+                        if(self.collectionRefreshDelegate != nil){
+                            self.collectionRefreshDelegate!.reloadData()
                         }
                     }
                 }
@@ -146,15 +166,28 @@ class GalleryDataSource {
         return galleryList
     }
     
-    func galleryVibeCounts() -> [String:Int]{
-        var galleryList : [String:Int] = [:];
+    func galleryFreshVibes() -> [String:[String]]{
+        var galleryList : [String:[String]] = [:];
+        
+        var used = ScoreController.shareScoreInstance.getUsedVibes()
+        var personal = ScoreController.shareScoreInstance.getPersonalVibes()
         
         for vibe in loadedVibes{
             let galleryName = vibe.galleryName;
+            if(used.contains(vibe.uuid)){
+                continue;
+            }
+            if(personal.contains(vibe.uuid)){
+                continue;
+            }
+            
             if(!galleryList.keys.contains(galleryName)){
-                galleryList[galleryName] = 1;
+                galleryList[galleryName] = [vibe.uuid];
             }else{
-                galleryList[galleryName] = galleryList[galleryName]! + 1;
+                
+                if(!galleryList[galleryName]!.contains(vibe.uuid)){
+                    galleryList[galleryName]?.append(vibe.uuid) ;
+                }
             }
         }
         return galleryList

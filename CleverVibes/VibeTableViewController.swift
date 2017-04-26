@@ -33,7 +33,7 @@ class VibeTableViewController:UITableViewController{
     
     func setupWithGalleryName(galleryName:String){
         self.galleryName = galleryName
-        vibeList = GalleryDataSource.sharedInstance.allVibesFor(gallery: galleryName)
+//        vibeList = GalleryDataSource.sharedInstance.allVibesFor(gallery: galleryName)//
     }
     
     

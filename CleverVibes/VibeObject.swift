@@ -16,8 +16,10 @@ class VibeObject{
     var galleryName = ""
     
     var configDict :[String:Any] = [:]
+    var uuid = "";
     
     init(){
+        
         
     }
     

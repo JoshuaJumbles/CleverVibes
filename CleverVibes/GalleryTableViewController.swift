@@ -12,7 +12,7 @@ import UIKit
 class GalleryTableViewController:UITableViewController{
     
     var galleryCounts : [String:Int] = [:]
-    var galleryVibeCounts : [String:Int] = [:]
+    var galleryVibeCounts : [String:[String]] = [:]
     var galleryKeys : [String] = []
     
     override init(style: UITableViewStyle) {
@@ -36,7 +36,7 @@ class GalleryTableViewController:UITableViewController{
     
     func setupData(){
         galleryCounts = GalleryDataSource.sharedInstance.galleryArtCounts();
-        galleryVibeCounts = GalleryDataSource.sharedInstance.galleryVibeCounts();
+        galleryVibeCounts = GalleryDataSource.sharedInstance.galleryFreshVibes();
         galleryKeys = Array(galleryCounts.keys);
         galleryKeys.sort() //{ $0.Name < $1.Name }
     }
@@ -53,7 +53,7 @@ class GalleryTableViewController:UITableViewController{
         }
         let keyName = galleryKeys[indexPath.row];
         reuseCell?.textLabel?.text = keyName;
-        let vibeCount = (galleryVibeCounts.keys.contains(keyName)) ? galleryVibeCounts[keyName]! : 0;
+        let vibeCount = 0;// (galleryVibeCounts.keys.contains(keyName)) ? galleryVibeCounts[keyName]! : 0;
         var vibeLanguage = (vibeCount == 1) ? "1 vibe, " : "\(vibeCount) vibes, "
         if(vibeCount == 0){
             vibeLanguage = ""

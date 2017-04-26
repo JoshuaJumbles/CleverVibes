@@ -11,10 +11,10 @@ import UIKit
 import Alamofire
 import AlamofireImage
 
-class VibeWriteViewController:UIViewController,UICollectionViewDelegate,UITextFieldDelegate{
+class VibeWriteViewController:UIViewController,UICollectionViewDelegate,UITextViewDelegate{
     @IBOutlet weak var artImageView: UIImageView!
     
-    @IBOutlet weak var vibeTextField: UITextField!
+//    @IBOutlet weak var vibeTextField: UITextField!
     @IBOutlet weak var doneButton: UIButton!
     
     @IBOutlet weak var artChooseButton: UIButton!
@@ -23,7 +23,16 @@ class VibeWriteViewController:UIViewController,UICollectionViewDelegate,UITextFi
     
     var chosenArtObject:ArtObject?
     
-    var artGridVC : ArtCollectionViewController?
+    var artGridVC : VibeWriteArtSelectionViewController?
+    
+    var artDataSource: ArtCollectionDataSource?
+    
+    @IBOutlet weak var textView: UITextView!
+    var hasTouchedTextView = false
+    
+    func setupWithArtDataSource(source:ArtCollectionDataSource){
+        artDataSource = source
+    }
     
     override func viewDidLoad() {
         
@@ -37,21 +46,24 @@ class VibeWriteViewController:UIViewController,UICollectionViewDelegate,UITextFi
     
     
     @IBAction func didTapChooseArtButton(_ sender: Any) {
-        if let vc = storyboard?.instantiateViewController(withIdentifier: "ArtGridScreen") as? ArtCollectionViewController{
-            vc.setupWithGalleryName(galleryName: galleryName)
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "WriteVibeArtSelectionScene") as? VibeWriteArtSelectionViewController{
+//            vc.setupWithGalleryName(galleryName: galleryName)
+//            
+//            vc.collectionView?.delegate = self
             
-            vc.collectionView?.delegate = self
             artGridVC = vc
+            vc.dataSource = artDataSource
+            vc.delegate = self
+            
             
             navigationController?.pushViewController(vc, animated: true)
         }
     }
     
-    
-    @IBAction func didTapDoneButton(_ sender: Any) {
-
+    @IBAction func didTapSubmit(_ sender: Any) {
         var newVibe = VibeObject()
-        newVibe.clue = vibeTextField.text!
+        //        newVibe.clue = vibeTextField.text!
+        newVibe.clue = textView.text;
         newVibe.answerObjectNumber = chosenArtObject!.objectNumber
         newVibe.galleryName = galleryName
         
@@ -65,6 +77,7 @@ class VibeWriteViewController:UIViewController,UICollectionViewDelegate,UITextFi
     }
     
     
+    
     func setupWithGalleryName(name:String){
         galleryName = name
     }
@@ -72,7 +85,7 @@ class VibeWriteViewController:UIViewController,UICollectionViewDelegate,UITextFi
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        chosenArtObject = artGridVC!.artObjectSet[indexPath.row]
+        chosenArtObject = artDataSource?.artObjectSet[indexPath.row]
         loadImageForArtObject(obj: chosenArtObject!)
         navigationController?.popViewController(animated: true)
         
@@ -95,10 +108,39 @@ class VibeWriteViewController:UIViewController,UICollectionViewDelegate,UITextFi
         }
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        if(text == "\n"){
+            dismissKeyboard();
+            return false;
+        }
+        return true;
+    }
+    
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        if(!hasTouchedTextView){
+            textView.text = "";
+            textView.textColor = UIColor.black;
+            hasTouchedTextView = true;
+        }
+    }
+    
+    func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
         dismissKeyboard()
         return true
     }
+    
+//    func textViewSho
+    
+//    func textFieldDidBeginEditing(_ textField: UITextField) {
+//        if(!hasTouchedTextView){
+//            textView
+//        }
+//    }
+//    
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        dismissKeyboard()
+//        return true
+//    }
     
     func dismissKeyboard(){
         view.endEditing(true)
@@ -106,7 +148,9 @@ class VibeWriteViewController:UIViewController,UICollectionViewDelegate,UITextFi
     }
     
     func updateDoneButtonAvailable(){
-        var available = chosenArtObject != nil && vibeTextField.text != nil
+        var available = chosenArtObject != nil &&
+                        textView.text != nil &&
+                        hasTouchedTextView
         doneButton.isEnabled = available
     }
 }

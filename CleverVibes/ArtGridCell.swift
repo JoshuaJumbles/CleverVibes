@@ -19,6 +19,7 @@ class ArtGridCell:UICollectionViewCell{
     @IBOutlet weak var objectNumberLabel: UILabel!
     
     func setupWithImageURL(url:String){
+        thumbnailImage.image = nil;
 //        self.thumbnailImage.image = UIImage(named: "thinker");
         Alamofire.request(url).responseImage { response in
 //            debugPrint(response)

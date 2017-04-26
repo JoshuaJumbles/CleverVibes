@@ -8,26 +8,39 @@
 
 import Foundation
 import UIKit
-import Alamofire
-import AlamofireImage
+
+//class GalleryConfig{
+//    var
+//}
 
 
 class GalleryGridCell: UICollectionViewCell{
-    let testURL = "https://secure.img1-fg.wfcdn.com/im/5863d826/resize-h225-w225%5Ecompr-r85/3691/36913676/Bubble+Recycled+Glass+Balloon+Vase.jpg"
     
-    func SetupCellWithImageURL(url:String){
-//        Alamofire.request(testURL).responseImage{ response in
-//            debugPrint(response);
-//            print(response.request)
-//            print(response.response)
-//            debugPrint(response.result)
-//            
-//            if let image = response.result.value {
-//                print("image downloaded: \(image)")
-//            }
-//
-//        }
+    @IBOutlet weak var galleryNumber: UILabel!
+    @IBOutlet weak var descriptorLabel: UILabel!
+    @IBOutlet weak var vibeIndicator: UIImageView!
+    
+    
+    var galleryName = "default"
+//    var galleryNumber = "000"
+    var galleryDescription = "default type"
+    
+    
+    func setupWithGallery(galleryName:String, description:String,  unsolvedVibeNumber:Int){
+        self.galleryName = galleryName
+        galleryDescription = description;
         
+        var numString = galleryName
+        
+        if let galleryPrefixRange = numString.range(of: "Gallery ") {
+            numString.replaceSubrange(galleryPrefixRange, with: "")
+        }
+        galleryNumber.text = numString;
+        
+        vibeIndicator.isHidden = unsolvedVibeNumber <= 0;
     }
+    
+    
+    
     
 }

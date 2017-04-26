@@ -17,7 +17,12 @@ class UploadVibeViewController:UIViewController{
     var navController :UINavigationController?
     var uploadVibe = VibeObject()
     
+    @IBOutlet weak var submittingLabel: UILabel!
+    @IBOutlet weak var congratsLabel: UILabel!
 //    let vibeKey =
+    @IBOutlet weak var doneButton: UIButton!
+    
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     func setupWithVibeObject(obj:VibeObject){
         uploadVibe = obj
@@ -26,13 +31,12 @@ class UploadVibeViewController:UIViewController{
     }
     
     
-    
-    @IBAction func didTapBackToHub(_ sender: Any) {
-        dismiss(animated: true) { 
+    @IBAction func didTapDone(_ sender: Any) {
+        dismiss(animated: true) {
             self.navController?.popToRootViewController(animated: true)
         }
-        
     }
+
     
     
     func uploadNewVibe(){
@@ -66,6 +70,7 @@ class UploadVibeViewController:UIViewController{
                 if let dict = response.result.value as? [String:Any]{
                     if let sysOptions = dict["sys"] as? [String:Any]{
                         if let idNum = sysOptions["id"] as? String{
+                            ScoreController.shareScoreInstance.addPersonalVibe(vibeId: idNum);
                             self.publishNewVibeEntry(entryId: idNum);
                         }
                     }
@@ -89,10 +94,20 @@ class UploadVibeViewController:UIViewController{
                 print(response.response as Any) // URL response
                 print(response.result.value as Any)
             
+            
+            
                 GalleryDataSource.sharedInstance.loadAllVibes()
+                self.finishedUpload()
         }
         
         
+    }
+    
+    func finishedUpload(){
+        congratsLabel.isHidden = false;
+        doneButton.isEnabled = true;
+        submittingLabel.isHidden = true;
+        activityIndicator.isHidden = true;
     }
     
     func makeVibeJsonDict(obj :VibeObject)->[String:Any]{
