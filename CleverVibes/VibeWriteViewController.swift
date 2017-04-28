@@ -41,7 +41,17 @@ class VibeWriteViewController:UIViewController,UICollectionViewDelegate,UITextVi
         //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
         tap.cancelsTouchesInView = false
         
+        navigationController?.navigationBar.backItem
+        
         view.addGestureRecognizer(tap)
+        var button = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: "goBack")
+        self.navigationItem.backBarButtonItem = button
+        
+    }
+    
+    func goBack()
+    {
+        self.navigationController?.popViewController(animated: true)
     }
     
     

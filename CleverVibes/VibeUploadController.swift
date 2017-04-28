@@ -25,23 +25,115 @@ class VibeUploadController{
     
     
     
-    func UpdateCorrectAnswerCountForVibe(vibe : VibeObject ){
+//    func UpdateCorrectAnswerCountForVibe(vibe : VibeObject ){
+//        
+//    }
+//    
+//    func UpdateIncorrectAnswerCountForVibe(vibe:VibeObject){
+//        
+//    }
+    
+    static func UploadChangedVibeObject(vibe : VibeObject){
         
     }
     
-    func UpdateIncorrectAnswerCountForVibe(vibe:VibeObject){
+    
+    
+    
+    static func makeVibeJsonDict(obj :VibeObject)->[String:Any]{
+        var dict : [String:Any] = [:]
+        
+        dict = ["fields":[
+            "clue":["en-US":obj.clue],
+            "galleryName":["en-US":obj.galleryName],
+            "answerObjectNumber":["en-US":obj.answerObjectNumber],
+            "correctAnswers":["en-US":obj.correctAnswers],
+            "incorrectAnswers":["en-US":obj.incorrectAnswers],
+            "lameVotes":["en-US":obj.lameVotes],
+            "cleverVotes":["en-US":obj.cleverVotes]
+            ]
+        ];
+        //            ["clue": [
+        //                            "value":obj.clue,
+        //                            "locale":"en-US"],
+        //                          "galleryName":["value":obj.galleryName],//["en-US":obj.galleryName],
+        //                          "answerObjectNumber":["value":obj.answerObjectNumber]]
+        //                "sys":["type":"Entry",
+        //                        "id":"vibe"]
+        //                ];
+        return dict;
+        //        dict["fields"]
+        //        dict["fields"] : [String:Any] = [:]
+        //        dict["fields"]["clue"] = "Upload test"
+        //        dict["fields"]["galleryName"] = obj.galleryName
+    }
+    
+    static func uploadVibeChanges(vibe:VibeObject){
+        
+        let spaceId = GalleryDataSource.sharedInstance.contentfulSpaceId
+        
+        var debugToken = VibeUploadController.sharedInstance.debugJoshToken
+        let header = ["Authorization" : debugToken,
+                      "Content-Type": "application/vnd.contentful.management.v1+json",
+                      "X-Contentful-Version":"\(vibe.version)"]
+        
+        let parameters: [String:Any] = makeVibeJsonDict(obj: vibe);
+        
+        let targetURL = String("https://api.contentful.com/spaces/\(spaceId)/entries/\(vibe.uuid)")!;
+        
+        Alamofire.request(targetURL, method: .put,parameters:parameters, encoding: JSONEncoding.default, headers: header).responseJSON { response in
+            print(response.request as Any)  // original URL request
+            print(response.response as Any) // URL response
+            print(response.result.value as Any)
+            if let dict = response.result.value as? [String:Any]{
+                if let sysOptions = dict["sys"] as? [String:Any]{
+                    var id = "";
+                    var version = 0;
+                    if let idNum = sysOptions["id"] as? String{
+                        id = idNum;
+                    }
+                    if let revision = sysOptions["version"] as? Int{
+                        version = revision;
+                    }
+                    ScoreController.shareScoreInstance.addPersonalVibe(vibeId: id);
+                    VibeUploadController.publishVibeEntry(entryId: id, version: version, onCompletion: {
+                        GalleryDataSource.sharedInstance.loadAllVibes()
+                    })
+                }
+            }
+            
+//            self.finishedUpload()
+        }
+        
         
     }
     
-    
-    
-    func uploadNewVibe(vibe:VibeObject){
-        // PUT
-        // /spaces/yadj1kx9rmg0/content_types/2PqfXUJwE8qSYKuM0U6w8M
+    static func publishVibeEntry(entryId:String, version:Int, onCompletion:@escaping () -> Void){
         
+        let spaceId = GalleryDataSource.sharedInstance.contentfulSpaceId
+        
+        var debugToken = VibeUploadController.sharedInstance.debugJoshToken
+        let header = ["Authorization" : debugToken,
+                      "X-Contentful-Version": "\(version + 1)"]
+//        let parameters: [String:Any] = ["test":""]
+        
+        let targetURL = String("https://api.contentful.com/spaces/\(spaceId)/entries/\(entryId)/published")!;
+        
+        Alamofire.request(targetURL, method: .put, encoding: JSONEncoding.default, headers: header).responseJSON { response in
+            print(response.request as Any)  // original URL request
+            print(response.response as Any) // URL response
+            print(response.result.value as Any)
+            
+            
+            
+            GalleryDataSource.sharedInstance.loadAllVibes()
+//            self.finishedUpload()
+            onCompletion();
+        }
         
         
     }
+
     
     
 //    Updating content

@@ -57,8 +57,12 @@ class AnswerRevealViewController:UIViewController{
         let correct = (artChoice.objectNumber == vibe.answerObjectNumber);
         if(correct){
             ScoreController.shareScoreInstance.addPoints(points: 100);
+            vibe.correctAnswers += 1;
+        }else{
+            ScoreController.shareScoreInstance.addUsedVibe(vibeId: vibe.uuid);
+            vibe.incorrectAnswers += 1;
         }
-        ScoreController.shareScoreInstance.addUsedVibe(vibeId: vibe.uuid);
+        
         
         answerStatusLabel.text = (correct) ? "CORRECT!" : "INCORRECT";
         answerStatusLabel.textColor = (correct) ? UIColor.green: UIColor.red;
@@ -67,13 +71,22 @@ class AnswerRevealViewController:UIViewController{
     }
     
     @IBAction func didPressDone(_ sender: Any) {
-        dismiss(animated: true) {
-            self.navController?.popToRootViewController(animated: true);
-        }
+        dismissAndReturnToHub()
     }
     
     @IBAction func didPressRude(_ sender: Any) {
+        vibe.lameVotes += 1;
+        dismissAndReturnToHub()
     }
     @IBAction func didPressClever(_ sender: Any) {
+        vibe.cleverVotes += 1;
+        dismissAndReturnToHub()
+    }
+    
+    func dismissAndReturnToHub(){
+        VibeUploadController.uploadVibeChanges(vibe: vibe);
+        dismiss(animated: true) {
+            self.navController?.popToRootViewController(animated: true);
+        }
     }
 }

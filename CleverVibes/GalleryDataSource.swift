@@ -32,6 +32,12 @@ class GalleryDataSource {
     let contentfulAccessToken = "34ed7ab08c1d6ab8d56318f6629180133c0ca04b52566f394a7009b7bea80efd"
     
     var collectionRefreshDelegate : GalleryCollectionViewController?
+    var highScoreRefreshDelegate : ScoreTableViewController?
+    
+    let selectedRoomFilter = [258,264,262,250,217,218,219,205];
+    var useFilter = true;
+    
+    
     
     
     init(){
@@ -60,7 +66,19 @@ class GalleryDataSource {
 //                    loadedData = dictionaryList
                     for dictionary in dictionaryList{
                         let artObject = ArtObject(config: dictionary)
-                        loadedData.append(artObject);
+                        
+                        if(useFilter){
+                            for selectRoom in selectedRoomFilter{
+                                if(artObject.galleryName.contains("Gallery \(selectRoom)")){
+                                    loadedData.append(artObject);
+                                }
+                            }
+                        }else{
+                            loadedData.append(artObject);
+                        }
+                        
+                        
+                        
                     }
                 }
                 
@@ -88,18 +106,26 @@ class GalleryDataSource {
                         self.loadedVibes = []
                         for item in itemList{
                             var vibeObject : VibeObject?
+                            var uuid = ""
+                            var version = 0;
+                            if let sys = item["sys"] as? [String:Any]{
+                                if let id = sys["id"] as? String{
+                                    uuid = id;
+                                }
+                                if let revisionNum = sys["revision"] as? Int{
+                                    version = revisionNum;
+                                }
+                            }
                             if let fields = item["fields"] as? [String:Any]{
-                                vibeObject = VibeObject(config: fields);
+                                
+                                
+                                vibeObject = VibeObject(config: fields, uuid: uuid, versionNumber: version)
 //                                print("FIELDS:\(fields)");
                                 
                                 
                             }
                             
-                            if let sys = item["sys"] as? [String:Any]{
-                                if let id = sys["id"] as? String{
-                                    vibeObject?.uuid = id;
-                                }
-                            }
+                            
                             if(vibeObject != nil){
                                 self.loadedVibes.append(vibeObject!)
                             }
@@ -108,6 +134,9 @@ class GalleryDataSource {
                         
                         if(self.collectionRefreshDelegate != nil){
                             self.collectionRefreshDelegate!.reloadData()
+                        }
+                        if(self.highScoreRefreshDelegate != nil){
+                            self.highScoreRefreshDelegate!.dataSourceDidReload()
                         }
                     }
                 }
@@ -192,6 +221,41 @@ class GalleryDataSource {
         }
         return galleryList
     }
+    
+    func freshVibesForList(vibeList:[VibeObject], useFresh:Bool)->[VibeObject]{
+        var returnList :[VibeObject] = []
+        
+        var used = ScoreController.shareScoreInstance.getUsedVibes()
+        var personal = ScoreController.shareScoreInstance.getPersonalVibes()
+        
+        for vibe in vibeList{
+            let galleryName = vibe.galleryName;
+            if(used.contains(vibe.uuid)){
+                if(!useFresh){
+                    returnList.append(vibe)
+                }
+                continue;
+            }
+            if(personal.contains(vibe.uuid)){
+                if(!useFresh){
+                    returnList.append(vibe)
+                }
+                continue;
+            }
+            
+            if(vibe.isVotedRude()){
+                continue;
+            }
+            
+            if(useFresh){
+                returnList.append(vibe)
+            }
+            
+        }
+        return returnList
+    }
+    
+    
     
     func startSyncingDatabaseToLocalJSON(){
         do{

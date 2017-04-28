@@ -15,15 +15,59 @@ class VibePageViewController:UIPageViewController,UIPageViewControllerDataSource
     var viewList : [UIViewController] = []
     var vibeList : [VibeObject] = []
     var galleryName = ""
+
+    
     
     func setupWithVibeList(galleryName: String,list:[VibeObject]){
-        vibeList = list;
+        if list.count == 0{
+            self.galleryName = galleryName
+            return;
+        }
+//        vibeList = list;
+        var freshVibes = GalleryDataSource.sharedInstance.freshVibesForList(vibeList: list,useFresh: true);
+        var staleVibes = GalleryDataSource.sharedInstance.freshVibesForList(vibeList: list, useFresh: false)
+        
+        var cleverSortedList = freshVibes.sorted(by:{$0.cleverVotes > $1.cleverVotes});
+        var freshSortedList = freshVibes.sorted(by:{$0.isFresh() && !$1.isFresh()});
+        
+        var largerIndex = (cleverSortedList.count > freshSortedList.count) ? cleverSortedList.count : freshSortedList.count;
+        
+        if(largerIndex == 0){
+            vibeList = staleVibes;
+            self.galleryName = galleryName;
+            return;
+        }
+        
+        vibeList = [];
+        for i in 0...largerIndex - 1{
+            if(i<cleverSortedList.count){
+                var cleverVibe = cleverSortedList[i];
+                if(!vibeList.contains(where: { element in
+                    return element.uuid == cleverVibe.uuid;
+                })){
+                    vibeList.append(cleverVibe);
+                }
+            }
+            
+            if(i<freshSortedList.count){
+                var freshVibe = freshSortedList[i];
+                if(!vibeList.contains(where: { element in
+                    return element.uuid == freshVibe.uuid;
+                })){
+                    vibeList.append(freshVibe);
+                }
+            }
+        }
+        vibeList.append(contentsOf: staleVibes);
+//        vibeList = list;
+        
         self.galleryName = galleryName
     }
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = UIColor.white
         setupViews()
         
 //        self.view.backgroundColor = UIColor.blue;
@@ -39,6 +83,15 @@ class VibePageViewController:UIPageViewController,UIPageViewControllerDataSource
         dataSource = self
         
         GalleryDataSource.sharedInstance;
+        
+        var button = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: "goBack")
+        self.navigationItem.backBarButtonItem = button
+        
+    }
+    
+    func goBack()
+    {
+        self.navigationController?.popViewController(animated: true)
     }
     
     func setupViews(){

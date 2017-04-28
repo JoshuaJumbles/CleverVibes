@@ -12,82 +12,72 @@ import UIKit
 class ScoreTableViewController : UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     var vibeList : [VibeObject] = []
+    var displayList : [VibeObject] = []
     
     @IBOutlet weak var tableView: UITableView!
     
+    @IBOutlet weak var filterSegmentedControl: UISegmentedControl!
     override func viewDidLoad() {
         vibeList = GalleryDataSource.sharedInstance.loadedVibes;
         
         let cellXib = UINib.init(nibName: "VibeTableCell", bundle: Bundle.main)
 //        tableView?.register(cellXib, forCellWithReuseIdentifier: "vibeTableCell")
         tableView.register(cellXib, forCellReuseIdentifier: "vibeTableCell");
+        
+        filterAndSortDisplayList()
+        GalleryDataSource.sharedInstance.highScoreRefreshDelegate = self;
+    }
+    
+    @IBAction func didChangeSegmentedControl(_ sender: Any) {
+        filterAndSortDisplayList()
+    }
+    
+    func filterAndSortDisplayList(){
+        var usePersonalFilter = filterSegmentedControl.selectedSegmentIndex == 1;
+        displayList = [];
+        if(usePersonalFilter){
+            var personalIds = ScoreController.shareScoreInstance.getPersonalVibes()
+            for vibe in vibeList{
+                var foundId = false;
+                for personalId in personalIds{
+                    if(vibe.uuid == personalId){
+                        foundId = true;
+                        break;
+                    }
+                }
+                if(foundId){
+                    displayList.append(vibe)
+                }
+            }
+        }else{
+            displayList = vibeList;
+        }
+        
+        displayList.sort { $0.calculateVibeScore() > $1.calculateVibeScore() }
+        tableView.reloadData()
+    }
+    
+    func dataSourceDidReload(){
+        filterAndSortDisplayList();
     }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return vibeList.count
+        return displayList.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         var reuseCell = tableView.dequeueReusableCell(withIdentifier: "vibeTableCell") as? VibeTableCell;
-//        if(reuseCell == nil){
-//            reuseCell =
-//        }
-        
-        if(indexPath.row < vibeList.count){
-            let vibe = vibeList[indexPath.row];
+
+        if(indexPath.row < displayList.count){
+            let vibe = displayList[indexPath.row];
             reuseCell?.setupWithVibe(vibeObj: vibe);
-//            let cellXib = UINib.init(nibName: "VibeTableCell", bundle: Bundle.main)
-//            reuseCell = cellXib.instantiate(withOwner: nil, options: nil);
-            
-//            reuseCell?.textLabel?.text = vibe.clue;
-//            reuseCell?.textLabel?.textColor = UIColor.black;
         }
-//        
-//        else{
-//            reuseCell?.textLabel?.text = "ADD YOUR OWN VIBE"
-//            reuseCell?.textLabel?.textColor = UIColor.lightGray;
-//        }
-//        
-        
-        //        reuseCell?.detailTextLabel?.text = "\() pieces of art";
         
         return reuseCell!
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 68;
+        return 93;
     }
-    
-    
-//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//
-//        if(indexPath.row<vibeList.count){
-//            print("selected \(vibeList[indexPath.row].clue)");
-//            
-//            if let vc = storyboard?.instantiateViewController(withIdentifier: "VibeDisplayScreen") as? VibeDisplayViewController{
-//                
-//                
-//                vc.setupWith(vibe: vibeList[indexPath.row])
-//                
-//                navigationController?.show(vc, sender: nil);
-//            }
-//        }else{
-//            print("Selected Make A new Vibe");
-//            
-//            if let vc = storyboard?.instantiateViewController(withIdentifier: "VibeWriteScreen") as? VibeWriteViewController{
-//                
-//                vc.setupWithGalleryName(name: galleryName)
-//                
-//                navigationController?.pushViewController(vc, animated: true);
-//            }
-//            
-//            
-//            
-//        }
-        
-        
-        
-        
-//    }
 }

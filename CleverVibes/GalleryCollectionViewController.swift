@@ -24,7 +24,7 @@ class GalleryCollectionViewController:UIViewController,UICollectionViewDelegate,
 
     
     
-    var sampleNearby = 5;
+    var sampleNearby = 1;
     
     
     
@@ -67,11 +67,36 @@ class GalleryCollectionViewController:UIViewController,UICollectionViewDelegate,
         
         GalleryDataSource.sharedInstance.collectionRefreshDelegate = self;
         
+//        for fontFamily in UIFont.familyNames{
+//            for name in UIFont.fontNames(forFamilyName: fontFamily){
+//                print("family:\(fontFamily) font:\(name)")
+//            }
+//        }
+        
+        if let font = UIFont(name: "BodoniSvtyTwoOSITCTT-Bold", size: 26){
+            self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: font]
+        }
+        
+        
+        var button = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: "goBack")
+        self.navigationItem.backBarButtonItem = button
+        
+    }
+    
+    func goBack()
+    {
+        self.navigationController?.popViewController(animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         pointsLabel.text = "\(ScoreController.shareScoreInstance.getPoints())"
 //        reloadData()\
+        
+//        self.navigationController.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "Bodoni Std Bold", size: 20)!]
+        
+//        self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName:"Bodoni Std Bold"]; //[NSFontAttributeName: UIFont(name: "Bodoni Std Bold", size: 21)!]
+//            [NSForegroundColorAttributeName: UIColor.redColor(),
+        
         
     }
     override func viewDidAppear(_ animated: Bool) {
@@ -83,6 +108,12 @@ class GalleryCollectionViewController:UIViewController,UICollectionViewDelegate,
             ScoreController.shareScoreInstance.recentlyEditedIndexPath = nil;
         }
     
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let backItem = UIBarButtonItem()
+        backItem.title = "Back"
+        navigationItem.backBarButtonItem = backItem // This will show in the next view controller being pushed
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {

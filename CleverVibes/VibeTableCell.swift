@@ -16,12 +16,21 @@ class VibeTableCell : UITableViewCell{
     @IBOutlet weak var cleverImageView: UIImageView!
     @IBOutlet weak var pointsLabel: UILabel!
     
+    @IBOutlet weak var galleryLabel: UILabel!
+    
+    
     func setupWithVibe(vibeObj:VibeObject){
         vibeTextLabel.text = vibeObj.clue;
 //        freshIm
         var isFresh = true;
-        var isClever = true;
+        var isClever = vibeObj.isVotedClever();
         
-        pointsLabel.text = "\(400)";
+        pointsLabel.text = "\(vibeObj.calculateVibeScore())";
+        cleverImageView.isHidden = !isClever;
+        
+        freshImageView.isHidden = !vibeObj.isFresh();
+        galleryLabel.text = vibeObj.galleryName;
     }
+    
+    
 }

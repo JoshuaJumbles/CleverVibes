@@ -13,6 +13,8 @@ class VibeTableViewController:UITableViewController{
     
     var vibeList : [VibeObject] = []
     
+    var displayedList : [VibeObject] = []
+    
     var galleryName = ""
     
     override init(style: UITableViewStyle) {
@@ -28,6 +30,10 @@ class VibeTableViewController:UITableViewController{
     }
     
     func setupData(){
+        
+    }
+    
+    func selectAndSortDisplayedList(){
         
     }
     

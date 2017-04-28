@@ -18,6 +18,8 @@ class VibeDisplayViewController:UIViewController,UICollectionViewDelegate{
     
     @IBOutlet weak var cleverView: UIView!
     
+    @IBOutlet weak var freshView: UIView!
+    
     @IBOutlet weak var answerButton: UIButton!
     
     @IBOutlet weak var vibeLabel: UILabel!
@@ -40,6 +42,7 @@ class VibeDisplayViewController:UIViewController,UICollectionViewDelegate{
         galleryName = vibe!.galleryName
        
         
+        
     }
     
     func setupWithoutVibe(name:String){
@@ -49,6 +52,7 @@ class VibeDisplayViewController:UIViewController,UICollectionViewDelegate{
     override func viewDidLoad() {
         if(vibe == nil){
             cleverView.isHidden = true;
+            freshView.isHidden = true;
             answerButton.isHidden = true;
             vibeLabel.text = "No vibe here yet!"
         }else{
@@ -67,6 +71,8 @@ class VibeDisplayViewController:UIViewController,UICollectionViewDelegate{
                 
             }
             
+            cleverView.isHidden = !(vibe!.isVotedClever())
+            freshView.isHidden = !(vibe!.isFresh())
             
             
             
@@ -74,8 +80,15 @@ class VibeDisplayViewController:UIViewController,UICollectionViewDelegate{
         
         artGridDataSource.setupWithGalleryName(galleryName: galleryName);
         galleryLabel.text = clipGalleryName(name: galleryName)
+        var button = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: "goBack")
+        self.navigationItem.backBarButtonItem = button
+        
     }
     
+    func goBack()
+    {
+        self.navigationController?.popViewController(animated: true)
+    }
     
     @IBAction func didTouchAnswerButton(_ sender: Any) {
         if let vc = storyboard?.instantiateViewController(withIdentifier: "VibeAnswerArtGridScreen") as? AnswerArtSelectionViewController{

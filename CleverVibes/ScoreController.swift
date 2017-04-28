@@ -51,7 +51,7 @@ class ScoreController{
     }
     
     func addPersonalVibe(vibeId:String){
-        var list = getUsedVibes();
+        var list = getPersonalVibes();
         list.append(vibeId);
         UserDefaults.standard.setValue(list, forKey: "personalVibes");
         UserDefaults.standard.synchronize()
