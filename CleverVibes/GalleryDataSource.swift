@@ -34,7 +34,8 @@ class GalleryDataSource {
     var collectionRefreshDelegate : GalleryCollectionViewController?
     var highScoreRefreshDelegate : ScoreTableViewController?
     
-    let selectedRoomFilter = [258,264,262,250,217,218,219,205];
+    let selectedRoomFilter = [258,264,262,250,217,218,219,205,
+                            222,226,229,235,239,240];
     var useFilter = true;
     
     
@@ -70,7 +71,13 @@ class GalleryDataSource {
                         if(useFilter){
                             for selectRoom in selectedRoomFilter{
                                 if(artObject.galleryName.contains("Gallery \(selectRoom)")){
-                                    loadedData.append(artObject);
+                                    if(!loadedData.contains(where: { element in
+                                        return (element.objectNumber == artObject.objectNumber)
+                                    })){
+                                        loadedData.append(artObject)
+                                    }
+                                    
+//                                    loadedData.append(artObject);
                                 }
                             }
                         }else{

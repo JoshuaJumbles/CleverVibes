@@ -15,6 +15,7 @@ class IntroViewController: UIPageViewController, UIPageViewControllerDataSource 
     var viewList : [UIViewController] = []
     
     override func viewDidLoad() {
+//        self.wind
         super.viewDidLoad()
         setupViews()
         

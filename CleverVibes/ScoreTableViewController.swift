@@ -26,6 +26,8 @@ class ScoreTableViewController : UIViewController, UITableViewDelegate, UITableV
         
         filterAndSortDisplayList()
         GalleryDataSource.sharedInstance.highScoreRefreshDelegate = self;
+//        UITabBar.appearance().barTintColor = view.tintColor;
+//        tabBarItem.
     }
     
     @IBAction func didChangeSegmentedControl(_ sender: Any) {

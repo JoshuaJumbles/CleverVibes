@@ -20,6 +20,7 @@ class GalleryGridCell: UICollectionViewCell{
     @IBOutlet weak var descriptorLabel: UILabel!
     @IBOutlet weak var vibeIndicator: UIImageView!
     
+    @IBOutlet weak var badgeNumberLabel: UILabel!
     
     var galleryName = "default"
 //    var galleryNumber = "000"
@@ -38,6 +39,12 @@ class GalleryGridCell: UICollectionViewCell{
         galleryNumber.text = numString;
         
         vibeIndicator.isHidden = unsolvedVibeNumber <= 0;
+        badgeNumberLabel.isHidden = unsolvedVibeNumber <= 0;
+        
+        badgeNumberLabel.text = "\(unsolvedVibeNumber)";
+
+        
+        
     }
     
     

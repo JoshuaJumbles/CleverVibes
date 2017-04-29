@@ -24,7 +24,7 @@ class GalleryCollectionViewController:UIViewController,UICollectionViewDelegate,
 
     
     
-    var sampleNearby = 1;
+    var sampleNearby = 2;
     
     
     

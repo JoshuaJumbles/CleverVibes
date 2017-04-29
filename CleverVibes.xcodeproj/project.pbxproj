@@ -47,6 +47,7 @@
 		9BE3A0981EA009FC00F66258 /* CleverVibesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE3A0971EA009FC00F66258 /* CleverVibesTests.swift */; };
 		9BE3A0A31EA009FC00F66258 /* CleverVibesUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE3A0A21EA009FC00F66258 /* CleverVibesUITests.swift */; };
 		9BE3A0B11EA00A0900F66258 /* Podfile in Resources */ = {isa = PBXBuildFile; fileRef = 9BE3A0B01EA00A0900F66258 /* Podfile */; };
+		B371CC361EB3E722004992F7 /* VibesTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B371CC351EB3E722004992F7 /* VibesTabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -114,6 +115,7 @@
 		9BE3A0A21EA009FC00F66258 /* CleverVibesUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CleverVibesUITests.swift; sourceTree = "<group>"; };
 		9BE3A0A41EA009FC00F66258 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9BE3A0B01EA00A0900F66258 /* Podfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		B371CC351EB3E722004992F7 /* VibesTabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VibesTabBarController.swift; sourceTree = "<group>"; };
 		CE17420D1E93D285710C94FB /* Pods_CleverVibes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CleverVibes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -196,6 +198,7 @@
 				9B0A0DB41EAEA93D0087D175 /* ScoreTableViewController.swift */,
 				9B0A0DBC1EAFF3520087D175 /* GalleryCollectionViewController.swift */,
 				9B0A0DC21EB02B3C0087D175 /* VibePageViewController.swift */,
+				B371CC351EB3E722004992F7 /* VibesTabBarController.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -517,6 +520,7 @@
 				9B910FD51EA00ABA0076386C /* IntroViewController.swift in Sources */,
 				9B0A0DBD1EAFF3520087D175 /* GalleryCollectionViewController.swift in Sources */,
 				9BB188C61EA6FF2A0096B24F /* VibeTableViewController.swift in Sources */,
+				B371CC361EB3E722004992F7 /* VibesTabBarController.swift in Sources */,
 				9B910FDD1EA00AEA0076386C /* GalleryDataSource.swift in Sources */,
 				9BB9FE601EB1294000879725 /* ScoreController.swift in Sources */,
 				9B0A0DC31EB02B3C0087D175 /* VibePageViewController.swift in Sources */,
