@@ -30,6 +30,8 @@ class VibeWriteViewController:UIViewController,UICollectionViewDelegate,UITextVi
     @IBOutlet weak var textView: UITextView!
     var hasTouchedTextView = false
     
+    let characterLimit = 38;
+    
     func setupWithArtDataSource(source:ArtCollectionDataSource){
         artDataSource = source
     }
@@ -71,6 +73,23 @@ class VibeWriteViewController:UIViewController,UICollectionViewDelegate,UITextVi
     }
     
     @IBAction func didTapSubmit(_ sender: Any) {
+        if(!isDoneButtonAvailable()){
+            var alert = UIAlertController(title: "Required Info", message: "Both a chosen art piece and Vibe clue are necessary to submit.", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+            self.present(alert, animated: true, completion: nil);
+            return;
+        }
+        
+        if(ProfanityController.doesStringContainProfanity(str: textView.text)){
+            var alert = UIAlertController(title: "Profanity", message: "This app is friendly for all, try to keep your language the same!", preferredStyle: UIAlertControllerStyle.alert)
+            alert.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.default, handler: nil))
+            textView.text = "";
+            self.present(alert, animated: true, completion: nil);
+            return;
+        }
+        
+        
+        
         var newVibe = VibeObject()
         //        newVibe.clue = vibeTextField.text!
         newVibe.clue = textView.text;
@@ -100,7 +119,7 @@ class VibeWriteViewController:UIViewController,UICollectionViewDelegate,UITextVi
         navigationController?.popViewController(animated: true)
         
         
-        updateDoneButtonAvailable()
+
     }
     
     func loadImageForArtObject(obj:ArtObject){
@@ -123,6 +142,15 @@ class VibeWriteViewController:UIViewController,UICollectionViewDelegate,UITextVi
             dismissKeyboard();
             return false;
         }
+        
+        var isRemovingText = text.characters.count == 0 && range.length >= 1;
+        
+        if(!isRemovingText && textView.text.characters.count >= characterLimit){
+            return false;
+        }
+        
+        
+        
         return true;
     }
     
@@ -139,28 +167,17 @@ class VibeWriteViewController:UIViewController,UICollectionViewDelegate,UITextVi
         return true
     }
     
-//    func textViewSho
-    
-//    func textFieldDidBeginEditing(_ textField: UITextField) {
-//        if(!hasTouchedTextView){
-//            textView
-//        }
-//    }
-//    
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        dismissKeyboard()
-//        return true
-//    }
-    
+
     func dismissKeyboard(){
         view.endEditing(true)
-        updateDoneButtonAvailable()
+        
     }
     
-    func updateDoneButtonAvailable(){
-        var available = chosenArtObject != nil &&
+    func isDoneButtonAvailable()->Bool{
+        let available = chosenArtObject != nil &&
                         textView.text != nil &&
+                        textView.text.characters.count != 0 &&
                         hasTouchedTextView
-        doneButton.isEnabled = available
+        return available
     }
 }

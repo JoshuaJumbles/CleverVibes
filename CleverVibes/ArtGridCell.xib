@@ -41,11 +41,16 @@
                         <color key="shadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <size key="shadowOffset" width="1" height="1"/>
                     </label>
+                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Q8N-ZQ-81s">
+                        <rect key="frame" x="72" y="72" width="37" height="37"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    </activityIndicatorView>
                 </subviews>
             </view>
             <color key="backgroundColor" red="0.42916268110275269" green="0.4291149377822876" blue="0.42914363741874695" alpha="0.0" colorSpace="calibratedRGB"/>
             <size key="customSize" width="118" height="118"/>
             <connections>
+                <outlet property="activityIndicator" destination="Q8N-ZQ-81s" id="rur-un-5GY"/>
                 <outlet property="objectNumberLabel" destination="kjz-up-M6o" id="1CN-Cj-jHM"/>
                 <outlet property="thumbnailImage" destination="801-ry-9Mx" id="oPl-H7-HDY"/>
             </connections>

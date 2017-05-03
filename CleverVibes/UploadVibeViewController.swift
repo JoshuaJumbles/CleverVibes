@@ -78,7 +78,7 @@ class UploadVibeViewController:UIViewController{
                             version = revision;
                         }
                         ScoreController.shareScoreInstance.addPersonalVibe(vibeId: id);
-                        VibeUploadController.publishVibeEntry(entryId: id, version: version, onCompletion: {
+                        VibeUploadController.publishVibeEntry(entryId: id, version: version + 1, onCompletion: {
                             self.finishedUpload()
                         })
                         

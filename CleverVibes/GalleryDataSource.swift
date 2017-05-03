@@ -28,6 +28,8 @@ class GalleryDataSource {
     
     var loadedVibes : [VibeObject] = []
     
+    var loadedBeaconMappings: [BeaconGalleryMapping] = []
+    
     let contentfulSpaceId = "dnednuw2i49p";
     let contentfulAccessToken = "34ed7ab08c1d6ab8d56318f6629180133c0ca04b52566f394a7009b7bea80efd"
     
@@ -50,6 +52,7 @@ class GalleryDataSource {
         
         loadDataFromLocalJSON();
         loadAllVibes();
+        loadAllBluetoothMappingData();
 //        ScoreController.sharedInstance;
     }
     
@@ -133,7 +136,7 @@ class GalleryDataSource {
                             }
                             
                             
-                            if(vibeObject != nil){
+                            if(vibeObject != nil && !vibeObject!.isVotedRude()){
                                 self.loadedVibes.append(vibeObject!)
                             }
                             
@@ -152,6 +155,37 @@ class GalleryDataSource {
         }catch{
             print(error);
         }
+    }
+    
+//    func checkPointsHaveBeenCollected()->Bool{
+//        return true;
+//    }
+    
+    func outOfSyncVibes()-> [VibeObject]{
+        var outOfSyncList :[VibeObject] = [];
+        var personalList = ScoreController.shareScoreInstance.getPersonalVibes();
+        
+        for vibeObject in loadedVibes{
+            if(personalList.contains(where: { element in
+                element == vibeObject.uuid;
+            })){
+                var personalVibeRegisteredDetails = ScoreController.shareScoreInstance.getCurrentRegisteredVibeValue(vibeId: vibeObject.uuid);
+                var registeredScore = personalVibeRegisteredDetails["points"];
+                var registeredCorrect = personalVibeRegisteredDetails["correct"];
+                var registeredIncorrect = personalVibeRegisteredDetails["incorrect"];
+                var registeredClever =
+                    personalVibeRegisteredDetails["cleverVotes"];
+                
+                if(vibeObject.calculateVibeScore() != registeredScore ||
+                    vibeObject.correctAnswers != registeredCorrect ||
+                    vibeObject.incorrectAnswers != registeredIncorrect ||
+                    vibeObject.cleverVotes != registeredClever){
+                    outOfSyncList.append(vibeObject);
+                }
+            }
+        }
+        
+        return outOfSyncList;
     }
     
     func objectForId(objectNum:Int)->ArtObject?{
@@ -311,6 +345,33 @@ class GalleryDataSource {
     
     func startDownloadingAllObjects(){
         DownloadTestObjectPool(offset: 0);
+    }
+    
+    func loadAllBluetoothMappingData(){
+        loadedBeaconMappings = [];
+        for room in selectedRoomFilter{
+            loadBluetoothMapping(roomId:room);
+        }
+    }
+    
+    func loadBluetoothMapping(roomId:Int){
+        var roomUrl = "https://hackathon.philamuseum.org/api/v0/collection/beaconsForLocation?location=\(roomId)&api_token=C3XAu0Sgmrllig0aYGmS46LVfvCt0elxHP1gGWYOJZHFJQpW3kLgXybPni5G"
+        
+        Alamofire.request(roomUrl).responseJSON { response in
+            print(response.request)  // original URL request
+            print(response.response) // HTTP URL response
+            print(response.data)     // server data
+            print(response.result)   // result of response serialization
+            
+            //            fullPayload = [[:]]
+            if let JSON = response.result.value as? [[String:Any]]{
+                for object in JSON{
+                    var beaconMapping = BeaconGalleryMapping(config:object,galleryNum:roomId);
+                    self.loadedBeaconMappings.append(beaconMapping);
+                }
+            }
+        }
+        
     }
     
     

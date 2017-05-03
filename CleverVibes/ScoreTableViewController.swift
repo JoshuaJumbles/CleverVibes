@@ -55,11 +55,12 @@ class ScoreTableViewController : UIViewController, UITableViewDelegate, UITableV
             displayList = vibeList;
         }
         
-        displayList.sort { $0.calculateVibeScore() > $1.calculateVibeScore() }
+        displayList.sort { $0.totalScoreIncludingBonus() > $1.totalScoreIncludingBonus() }
         tableView.reloadData()
     }
     
     func dataSourceDidReload(){
+        vibeList = GalleryDataSource.sharedInstance.loadedVibes;
         filterAndSortDisplayList();
     }
     

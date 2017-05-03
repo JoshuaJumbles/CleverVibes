@@ -24,13 +24,10 @@ class GalleryCollectionViewController:UIViewController,UICollectionViewDelegate,
 
     
     
-    var sampleNearby = 2;
-    
-    
-    
     var galleryCounts : [String:Int] = [:]
     var galleryFreshVibes : [String:[String]] = [:]
    
+    var asyncVibeObjects: [VibeObject]?
     
     func reloadData(){
         setupData()
@@ -45,15 +42,11 @@ class GalleryCollectionViewController:UIViewController,UICollectionViewDelegate,
         galleryNames = Array(galleryCounts.keys);
         galleryNames.sort() //{ $0.Name < $1.Name }
         
-        nearbyGalleryNames = [];
-        for i in 0 ... sampleNearby-1{
-            nearbyGalleryNames.append( galleryNames[i]);
-        }
+        setupGalleriesForNearby(numbers: BeaconController.sharedInstance.nearbyGalleryNumbers)
         
-        farGalleryNames = [];
-        
-        for i in sampleNearby ... galleryNames.count-1{
-            farGalleryNames.append( galleryNames[i]);
+        asyncVibeObjects = GalleryDataSource.sharedInstance.outOfSyncVibes();
+        if(asyncVibeObjects!.count > 0){
+            askDisplayPointCashIn()
         }
     }
     
@@ -66,7 +59,7 @@ class GalleryCollectionViewController:UIViewController,UICollectionViewDelegate,
         galleryGrid?.register(cellXib, forCellWithReuseIdentifier: "galleryGridCell")
         
         GalleryDataSource.sharedInstance.collectionRefreshDelegate = self;
-        
+        BeaconController.sharedInstance.galleryViewController = self;
 //        for fontFamily in UIFont.familyNames{
 //            for name in UIFont.fontNames(forFamilyName: fontFamily){
 //                print("family:\(fontFamily) font:\(name)")
@@ -78,9 +71,56 @@ class GalleryCollectionViewController:UIViewController,UICollectionViewDelegate,
         }
         
         
-        var button = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: "goBack")
+        let button = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: "goBack")
         self.navigationItem.backBarButtonItem = button
         
+        self.navigationController?.view.backgroundColor = UIColor.white
+    }
+    
+    func nearbyGalleriesDidChange(){
+        let numbers = BeaconController.sharedInstance.nearbyGalleryNumbers;
+        setupGalleriesForNearby(numbers: numbers)
+    }
+    
+    func setupGalleriesForNearby(numbers:[Int]){
+        nearbyGalleryNames = []
+        farGalleryNames = []
+        for name in galleryNames{
+            var foundMatch = false
+            for num in numbers{
+                if(name.contains("\(num)")){
+                    nearbyGalleryNames.append(name);
+                    foundMatch = true
+                    break;
+                }
+            }
+            if(!foundMatch){
+                farGalleryNames.append(name)
+            }
+        }
+        farGalleryNames.sort()
+        
+        galleryGrid.reloadData()
+        
+    }
+    
+    func askDisplayPointCashIn(){
+        var alertView = UIAlertController(title: "Your vibes scored!", message: "Would you like to review the results?", preferredStyle: UIAlertControllerStyle.alert);
+        var laterAction = UIAlertAction(title: "Later", style: UIAlertActionStyle.cancel, handler: nil);
+        var okAction = UIAlertAction(title: "Ok", style: UIAlertActionStyle.default) { alert in
+            self.displayPointCashIn();
+        }
+        alertView.addAction(laterAction);
+        alertView.addAction(okAction);
+        
+        self.present(alertView, animated: true, completion: nil)
+    }
+    
+    func displayPointCashIn(){
+        let vc = storyboard?.instantiateViewController(withIdentifier: "VibesCashInScreen") as! VibesCashInViewController;
+        
+        vc.setupWithOutOfSyncVibes(objects: asyncVibeObjects!)
+        present(vc, animated: true, completion: nil);
     }
     
     func goBack()
@@ -117,7 +157,7 @@ class GalleryCollectionViewController:UIViewController,UICollectionViewDelegate,
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 2;
+        return (nearbyGalleryNames.count > 0) ? 2 : 1;
     }
     
     
@@ -128,7 +168,12 @@ class GalleryCollectionViewController:UIViewController,UICollectionViewDelegate,
             let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind,
                                                                        withReuseIdentifier: "gridSectionHeader",
                                                                        for: indexPath) as! GallerySeparatorView;
-            view.titleLabel.text = (indexPath.section == 0) ? "NEARBY GALLERIES" : "ALL GALLERIES"
+            if(nearbyGalleryNames.count <= 0){
+                view.titleLabel.text = "ALL GALLERIES"
+            }else{
+                view.titleLabel.text = (indexPath.section == 0) ? "NEARBY GALLERIES" : "ALL GALLERIES"
+                
+            }
             
             
             return view
@@ -140,6 +185,11 @@ class GalleryCollectionViewController:UIViewController,UICollectionViewDelegate,
         
     }
     
+    @IBAction func didTapHelp(_ sender: Any) {
+        var vc = storyboard?.instantiateViewController(withIdentifier: "HelpScreen")
+        present(vc!, animated: true, completion: nil)
+    }
+    
 //    supplem
     @IBAction func didTapRefresh(_ sender: Any) {
         GalleryDataSource.sharedInstance.loadAllVibes()
@@ -147,28 +197,38 @@ class GalleryCollectionViewController:UIViewController,UICollectionViewDelegate,
     
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if(section == 0){
-            return nearbyGalleryNames.count;
-        }else{
+        if(nearbyGalleryNames.count <= 0){
             return farGalleryNames.count;
+        }else{
+            if(section == 0){
+                return nearbyGalleryNames.count;
+            }else{
+                return farGalleryNames.count;
+            }
         }
+        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         var cell = collectionView.dequeueReusableCell(withReuseIdentifier: "galleryGridCell", for: indexPath) as? GalleryGridCell;
         
         var name = "";
-        switch (indexPath.section){
-        case 0:
-            name = nearbyGalleryNames[indexPath.row]
-            break;
-        case 1:
+        if(nearbyGalleryNames.count <= 0){
             name = farGalleryNames[indexPath.row];
-            break;
-        default:
-            name = ""
-            break;
+        }else{
+            switch (indexPath.section){
+            case 0:
+                name = nearbyGalleryNames[indexPath.row]
+                break;
+            case 1:
+                name = farGalleryNames[indexPath.row];
+                break;
+            default:
+                name = ""
+                break;
+            }
         }
+        
         
         var unsolvedSet = galleryFreshVibes[name];
         var unsolvedCount = 0;
@@ -182,27 +242,28 @@ class GalleryCollectionViewController:UIViewController,UICollectionViewDelegate,
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         ScoreController.shareScoreInstance.recentlyEditedIndexPath = indexPath;
-        switch (indexPath.section){
+        var galleryName = "";
+        if(nearbyGalleryNames.count <= 0){
+            galleryName = farGalleryNames[indexPath.row];
+        }else{
+            switch (indexPath.section){
             case 0:
-                let galleryName = nearbyGalleryNames[indexPath.row];
-                let vc = storyboard?.instantiateViewController(withIdentifier: "VibePageScene") as! VibePageViewController;
-                
-                vc.setupWithVibeList(galleryName:galleryName, list: GalleryDataSource.sharedInstance.allVibesFor(gallery: galleryName));
-                
-                vc.hidesBottomBarWhenPushed = true;
-                navigationController?.pushViewController(vc, animated: true)
-            
-            
+                galleryName = nearbyGalleryNames[indexPath.row];
             case 1:
-                let galleryName = farGalleryNames[indexPath.row];
-                let vc = storyboard?.instantiateViewController(withIdentifier: "VibePageScene") as! VibePageViewController;
-                vc.setupWithVibeList(galleryName:galleryName, list: GalleryDataSource.sharedInstance.allVibesFor(gallery: galleryName));
-                vc.hidesBottomBarWhenPushed = true;
-                navigationController?.pushViewController(vc, animated: true);
-            
-            
+                galleryName = farGalleryNames[indexPath.row];
             default:
                 break
+            }
         }
+        
+        pushVibePageScreen(galleryName: galleryName);
+    }
+    
+    func pushVibePageScreen(galleryName:String){
+        let vc = storyboard?.instantiateViewController(withIdentifier: "VibePageScene") as! VibePageViewController;
+        vc.setupWithVibeList(galleryName:galleryName, list: GalleryDataSource.sharedInstance.allVibesFor(gallery: galleryName));
+        vc.hidesBottomBarWhenPushed = true;
+        navigationController?.pushViewController(vc, animated: true);
+        
     }
 }

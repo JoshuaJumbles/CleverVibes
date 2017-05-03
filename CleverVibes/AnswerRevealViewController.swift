@@ -16,6 +16,7 @@ class AnswerRevealViewController:UIViewController{
     @IBOutlet weak var answerImage: UIImageView!
     @IBOutlet weak var answerStatusLabel: UILabel!
     
+    @IBOutlet weak var pointsGainedLabel: UILabel!
     @IBOutlet weak var hubReturnButton: UIButton!
     
     @IBOutlet weak var vibeClue: UILabel!
@@ -63,6 +64,7 @@ class AnswerRevealViewController:UIViewController{
             vibe.incorrectAnswers += 1;
         }
         
+        pointsGainedLabel.isHidden = !correct;
         
         answerStatusLabel.text = (correct) ? "CORRECT!" : "INCORRECT";
         answerStatusLabel.textColor = (!correct) ? UIColor.init(colorLiteralRed: 223.0/255.0, green: 76.0/255.0, blue: 154.0/255.0, alpha: 1.0): UIColor.init(colorLiteralRed: 45.0/255.0, green: 144.0/255.0, blue: 87.0/255.0, alpha: 1.0);
@@ -84,7 +86,7 @@ class AnswerRevealViewController:UIViewController{
     }
     
     func dismissAndReturnToHub(){
-        VibeUploadController.uploadVibeChanges(vibe: vibe);
+        VibeUploadController.uploadVibeChanges(vibe: vibe, isPersonalVibe:false);
         dismiss(animated: true) {
             self.navController?.popToRootViewController(animated: true);
         }

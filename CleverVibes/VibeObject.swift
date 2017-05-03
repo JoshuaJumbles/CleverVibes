@@ -32,7 +32,8 @@ class VibeObject{
     let topScore = 300;
     
     let cleverThreshold = 0.5;
-    let lameThreshold = 0.25;
+    let lameThreshold = 0.5;
+    let lameMinimumVotes = 8;
     
     init(){
         
@@ -101,6 +102,12 @@ class VibeObject{
         
     }
     
+    func totalScoreIncludingBonus()->Int{
+        var cleverScore = cleverVotes * 25;
+        var totalVotesScore = (incorrectAnswers + correctAnswers) * 10
+        return cleverScore + totalVotesScore + calculateVibeScore()
+    }
+    
     func isVotedClever() -> Bool{
         if(isFresh()){
             return false;
@@ -119,6 +126,9 @@ class VibeObject{
     
     func isVotedRude() -> Bool{
         let totalAnswers = correctAnswers + incorrectAnswers;
+        if(totalAnswers<lameMinimumVotes){
+            return false;
+        }
         let lamePercent = Float(lameVotes) / Float(totalAnswers);
         return lamePercent > Float(lameThreshold);
     }

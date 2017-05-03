@@ -66,4 +66,25 @@ class ScoreController{
         return empty;
     }
     
+    
+    func setRegisteredVibeValues(vibe: VibeObject){
+        var arr = getCurrentRegisteredVibeValue(vibeId: vibe.uuid);
+        arr["points"] = vibe.calculateVibeScore();
+        arr["correct"] = vibe.correctAnswers;
+        arr["incorrect"] = vibe.incorrectAnswers;
+        arr["cleverVotes"] = vibe.cleverVotes;
+        
+        UserDefaults.standard.setValue(arr, forKey: "registeredObj_\(vibe.uuid)");
+        UserDefaults.standard.synchronize();
+    }
+    
+    func getCurrentRegisteredVibeValue(vibeId:String) -> [String:Int]{
+        if let arr = UserDefaults.standard.value(forKey: "registeredObj_\(vibeId)") as? [String:Int]{
+            return arr;
+        }
+        
+        let empty : [String:Int] = ["points":0,"correct":0,"incorrect":0,"cleverVotes":0];
+        return empty;
+    }
+    
 }

@@ -32,12 +32,22 @@
 		9B910FFE1EA096060076386C /* ArtCollectionDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B910FFD1EA096060076386C /* ArtCollectionDataSource.swift */; };
 		9B9110001EA0A3060076386C /* ArtGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B910FFF1EA0A3060076386C /* ArtGridCell.swift */; };
 		9B9110021EA0A98D0076386C /* ArtGridCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B9110011EA0A98D0076386C /* ArtGridCell.xib */; };
+		9B93BF2F1EB7C87800530C0F /* VibeCashInTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B93BF2E1EB7C87800530C0F /* VibeCashInTableCell.xib */; };
+		9B93BF331EB7CF8A00530C0F /* VibeCashInGridCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B93BF321EB7CF8A00530C0F /* VibeCashInGridCell.xib */; };
+		9B93BF351EB7D59200530C0F /* VibesCashInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B93BF341EB7D59200530C0F /* VibesCashInViewController.swift */; };
+		9B93BF371EB7EFA500530C0F /* HelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B93BF361EB7EFA500530C0F /* HelpViewController.swift */; };
+		9B93BF391EB840EA00530C0F /* VibeCashInParticipationGridCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B93BF381EB840EA00530C0F /* VibeCashInParticipationGridCell.xib */; };
+		9B93BF3B1EB8411700530C0F /* VibeCashInGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B93BF3A1EB8411700530C0F /* VibeCashInGridCell.swift */; };
+		9B93BF3D1EB8417B00530C0F /* VibeCashInParticipationGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B93BF3C1EB8417B00530C0F /* VibeCashInParticipationGridCell.swift */; };
+		9B93BF3F1EB91E2F00530C0F /* BeaconGalleryMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B93BF3E1EB91E2F00530C0F /* BeaconGalleryMapping.swift */; };
+		9B93BF411EB9250000530C0F /* BeaconController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B93BF401EB9250000530C0F /* BeaconController.swift */; };
 		9BB188C41EA6F8790096B24F /* VibeObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB188C31EA6F8790096B24F /* VibeObject.swift */; };
 		9BB188C61EA6FF2A0096B24F /* VibeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB188C51EA6FF2A0096B24F /* VibeTableViewController.swift */; };
 		9BB188C81EA70AE80096B24F /* VibeDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB188C71EA70AE80096B24F /* VibeDisplayViewController.swift */; };
 		9BB188CA1EA716630096B24F /* AnswerRevealViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB188C91EA716630096B24F /* AnswerRevealViewController.swift */; };
 		9BB9FE601EB1294000879725 /* ScoreController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BB9FE5F1EB1294000879725 /* ScoreController.swift */; };
 		9BD229F91EA6F252000E424E /* ArtObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD229F81EA6F252000E424E /* ArtObject.swift */; };
+		9BD230811EBA2DB200AE2417 /* ProfanityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BD230801EBA2DB200AE2417 /* ProfanityController.swift */; };
 		9BE3A0801EA009FC00F66258 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE3A07F1EA009FC00F66258 /* AppDelegate.swift */; };
 		9BE3A0821EA009FC00F66258 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BE3A0811EA009FC00F66258 /* ViewController.swift */; };
 		9BE3A0851EA009FC00F66258 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9BE3A0831EA009FC00F66258 /* Main.storyboard */; };
@@ -94,12 +104,22 @@
 		9B910FFD1EA096060076386C /* ArtCollectionDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtCollectionDataSource.swift; sourceTree = "<group>"; };
 		9B910FFF1EA0A3060076386C /* ArtGridCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtGridCell.swift; sourceTree = "<group>"; };
 		9B9110011EA0A98D0076386C /* ArtGridCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ArtGridCell.xib; sourceTree = "<group>"; };
+		9B93BF2E1EB7C87800530C0F /* VibeCashInTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VibeCashInTableCell.xib; sourceTree = "<group>"; };
+		9B93BF321EB7CF8A00530C0F /* VibeCashInGridCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VibeCashInGridCell.xib; sourceTree = "<group>"; };
+		9B93BF341EB7D59200530C0F /* VibesCashInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VibesCashInViewController.swift; sourceTree = "<group>"; };
+		9B93BF361EB7EFA500530C0F /* HelpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HelpViewController.swift; sourceTree = "<group>"; };
+		9B93BF381EB840EA00530C0F /* VibeCashInParticipationGridCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VibeCashInParticipationGridCell.xib; sourceTree = "<group>"; };
+		9B93BF3A1EB8411700530C0F /* VibeCashInGridCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VibeCashInGridCell.swift; sourceTree = "<group>"; };
+		9B93BF3C1EB8417B00530C0F /* VibeCashInParticipationGridCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VibeCashInParticipationGridCell.swift; sourceTree = "<group>"; };
+		9B93BF3E1EB91E2F00530C0F /* BeaconGalleryMapping.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconGalleryMapping.swift; sourceTree = "<group>"; };
+		9B93BF401EB9250000530C0F /* BeaconController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeaconController.swift; sourceTree = "<group>"; };
 		9BB188C31EA6F8790096B24F /* VibeObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VibeObject.swift; sourceTree = "<group>"; };
 		9BB188C51EA6FF2A0096B24F /* VibeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VibeTableViewController.swift; sourceTree = "<group>"; };
 		9BB188C71EA70AE80096B24F /* VibeDisplayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VibeDisplayViewController.swift; sourceTree = "<group>"; };
 		9BB188C91EA716630096B24F /* AnswerRevealViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnswerRevealViewController.swift; sourceTree = "<group>"; };
 		9BB9FE5F1EB1294000879725 /* ScoreController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScoreController.swift; sourceTree = "<group>"; };
 		9BD229F81EA6F252000E424E /* ArtObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ArtObject.swift; sourceTree = "<group>"; };
+		9BD230801EBA2DB200AE2417 /* ProfanityController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfanityController.swift; sourceTree = "<group>"; };
 		9BE3A07C1EA009FC00F66258 /* CleverVibes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CleverVibes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9BE3A07F1EA009FC00F66258 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9BE3A0811EA009FC00F66258 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -183,6 +203,11 @@
 				9B0A0DB21EAEA3EA0087D175 /* VibeTableCell.xib */,
 				9B0A0DB61EAFD2950087D175 /* VibeTableCell.swift */,
 				9B0A0DB81EAFE09A0087D175 /* GalleryGridCell.xib */,
+				9B93BF2E1EB7C87800530C0F /* VibeCashInTableCell.xib */,
+				9B93BF321EB7CF8A00530C0F /* VibeCashInGridCell.xib */,
+				9B93BF381EB840EA00530C0F /* VibeCashInParticipationGridCell.xib */,
+				9B93BF3A1EB8411700530C0F /* VibeCashInGridCell.swift */,
+				9B93BF3C1EB8417B00530C0F /* VibeCashInParticipationGridCell.swift */,
 			);
 			name = Cells;
 			sourceTree = "<group>";
@@ -199,6 +224,8 @@
 				9B0A0DBC1EAFF3520087D175 /* GalleryCollectionViewController.swift */,
 				9B0A0DC21EB02B3C0087D175 /* VibePageViewController.swift */,
 				B371CC351EB3E722004992F7 /* VibesTabBarController.swift */,
+				9B93BF341EB7D59200530C0F /* VibesCashInViewController.swift */,
+				9B93BF361EB7EFA500530C0F /* HelpViewController.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -212,6 +239,8 @@
 				9BB188C51EA6FF2A0096B24F /* VibeTableViewController.swift */,
 				9B6A1F981EA7ADF800D72A31 /* VibeUploadController.swift */,
 				9BB9FE5F1EB1294000879725 /* ScoreController.swift */,
+				9B93BF401EB9250000530C0F /* BeaconController.swift */,
+				9BD230801EBA2DB200AE2417 /* ProfanityController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -232,6 +261,7 @@
 			children = (
 				9BD229F81EA6F252000E424E /* ArtObject.swift */,
 				9BB188C31EA6F8790096B24F /* VibeObject.swift */,
+				9B93BF3E1EB91E2F00530C0F /* BeaconGalleryMapping.swift */,
 			);
 			name = Objects;
 			sourceTree = "<group>";
@@ -417,6 +447,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9B93BF391EB840EA00530C0F /* VibeCashInParticipationGridCell.xib in Resources */,
 				9B9110021EA0A98D0076386C /* ArtGridCell.xib in Resources */,
 				9BE3A08D1EA009FC00F66258 /* LaunchScreen.storyboard in Resources */,
 				9B0A0DB31EAEA3EA0087D175 /* VibeTableCell.xib in Resources */,
@@ -424,6 +455,8 @@
 				9BE3A0B11EA00A0900F66258 /* Podfile in Resources */,
 				9B910FF01EA035DA0076386C /* SyncDemoTest.json in Resources */,
 				9B910FF21EA06CA40076386C /* ExampleDemo.json in Resources */,
+				9B93BF331EB7CF8A00530C0F /* VibeCashInGridCell.xib in Resources */,
+				9B93BF2F1EB7C87800530C0F /* VibeCashInTableCell.xib in Resources */,
 				9B0A0DB91EAFE09A0087D175 /* GalleryGridCell.xib in Resources */,
 				9B910FFA1EA0878D0076386C /* strippedDataFull.json in Resources */,
 				9B0A0DBF1EB016360087D175 /* GallerySeparatorView.xib in Resources */,
@@ -507,6 +540,10 @@
 				9B9110001EA0A3060076386C /* ArtGridCell.swift in Sources */,
 				9B0A0DC11EB016C60087D175 /* GallerySeparatorView.swift in Sources */,
 				9B6A1F971EA72C3E00D72A31 /* UploadVibeViewController.swift in Sources */,
+				9B93BF3B1EB8411700530C0F /* VibeCashInGridCell.swift in Sources */,
+				9B93BF3F1EB91E2F00530C0F /* BeaconGalleryMapping.swift in Sources */,
+				9B93BF351EB7D59200530C0F /* VibesCashInViewController.swift in Sources */,
+				9B93BF371EB7EFA500530C0F /* HelpViewController.swift in Sources */,
 				9BB188C81EA70AE80096B24F /* VibeDisplayViewController.swift in Sources */,
 				9BB188CA1EA716630096B24F /* AnswerRevealViewController.swift in Sources */,
 				9BE3A0821EA009FC00F66258 /* ViewController.swift in Sources */,
@@ -519,12 +556,15 @@
 				9BD229F91EA6F252000E424E /* ArtObject.swift in Sources */,
 				9B910FD51EA00ABA0076386C /* IntroViewController.swift in Sources */,
 				9B0A0DBD1EAFF3520087D175 /* GalleryCollectionViewController.swift in Sources */,
+				9B93BF3D1EB8417B00530C0F /* VibeCashInParticipationGridCell.swift in Sources */,
 				9BB188C61EA6FF2A0096B24F /* VibeTableViewController.swift in Sources */,
 				B371CC361EB3E722004992F7 /* VibesTabBarController.swift in Sources */,
 				9B910FDD1EA00AEA0076386C /* GalleryDataSource.swift in Sources */,
 				9BB9FE601EB1294000879725 /* ScoreController.swift in Sources */,
 				9B0A0DC31EB02B3C0087D175 /* VibePageViewController.swift in Sources */,
 				9B0A0DCC1EB0E4B60087D175 /* AnswerArtSelectionViewController.swift in Sources */,
+				9BD230811EBA2DB200AE2417 /* ProfanityController.swift in Sources */,
+				9B93BF411EB9250000530C0F /* BeaconController.swift in Sources */,
 				9B0A0DB71EAFD2950087D175 /* VibeTableCell.swift in Sources */,
 				9B910FFC1EA08DAB0076386C /* GalleryTableViewController.swift in Sources */,
 			);
@@ -681,7 +721,7 @@
 				INFOPLIST_FILE = CleverVibes/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jamslap.CleverVibes;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jamslap.Vibes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -696,7 +736,7 @@
 				INFOPLIST_FILE = CleverVibes/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.jamslap.CleverVibes;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jamslap.Vibes;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};

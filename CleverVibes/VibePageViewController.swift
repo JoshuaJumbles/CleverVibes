@@ -28,7 +28,7 @@ class VibePageViewController:UIPageViewController,UIPageViewControllerDataSource
         var staleVibes = GalleryDataSource.sharedInstance.freshVibesForList(vibeList: list, useFresh: false)
         
         var cleverSortedList = freshVibes.sorted(by:{$0.cleverVotes > $1.cleverVotes});
-        var freshSortedList = freshVibes.sorted(by:{$0.isFresh() && !$1.isFresh()});
+        var freshSortedList = freshVibes.sorted(by:{$0.correctAnswers + $0.incorrectAnswers < $1.correctAnswers + $1.incorrectAnswers});
         
         var largerIndex = (cleverSortedList.count > freshSortedList.count) ? cleverSortedList.count : freshSortedList.count;
         

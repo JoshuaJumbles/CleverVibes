@@ -8,4 +8,5 @@ target ‘CleverVibes’ do
     pod 'AlamofireNetworkActivityIndicator', '~> 2.0'
     pod 'Sync', '~> 3'
     pod 'Contentful'
+    pod 'Fingertips', '~> 0.5'
 end

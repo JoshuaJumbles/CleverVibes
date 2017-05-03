@@ -25,7 +25,7 @@ class VibeTableCell : UITableViewCell{
         var isFresh = true;
         var isClever = vibeObj.isVotedClever();
         
-        pointsLabel.text = "\(vibeObj.calculateVibeScore())";
+        pointsLabel.text = "\(vibeObj.totalScoreIncludingBonus())";
         cleverImageView.isHidden = !isClever;
         
         freshImageView.isHidden = !vibeObj.isFresh();

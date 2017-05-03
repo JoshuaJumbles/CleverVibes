@@ -26,6 +26,8 @@ class VibeDisplayViewController:UIViewController,UICollectionViewDelegate{
     
     @IBOutlet weak var galleryLabel: UILabel!
     
+    @IBOutlet weak var vibeBackgroundImage: UIImageView!
+    
     var galleryName = ""
     
     
@@ -77,6 +79,10 @@ class VibeDisplayViewController:UIViewController,UICollectionViewDelegate{
             
             
         }
+        let randomNum:UInt32 = arc4random_uniform(9)
+        let random = Int(randomNum) + 1
+        let imageName = "vibes-bg_00\(random)"
+        vibeBackgroundImage.image = UIImage(named: imageName)
         
         artGridDataSource.setupWithGalleryName(galleryName: galleryName);
         galleryLabel.text = clipGalleryName(name: galleryName)
