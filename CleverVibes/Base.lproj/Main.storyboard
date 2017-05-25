@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -1432,83 +1433,128 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="vibes-bg_001" translatesAutoresizingMaskIntoConstraints="NO" id="1Rn-h8-0zF">
+                            <imageView userInteractionEnabled="NO" alpha="0.40000000000000002" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vibes-bg_001" translatesAutoresizingMaskIntoConstraints="NO" id="1Rn-h8-0zF">
                                 <rect key="frame" x="55" y="365" width="263" height="259"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="1Rn-h8-0zF" secondAttribute="height" multiplier="263:259" id="GlB-fy-UQx"/>
+                                </constraints>
                             </imageView>
-                            <view clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bpj-R6-eJo">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="119"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bpj-R6-eJo">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" alpha="0.25" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="temp-bg" translatesAutoresizingMaskIntoConstraints="NO" id="hew-iK-it3">
-                                        <rect key="frame" x="0.0" y="-43" width="375" height="390"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <imageView userInteractionEnabled="NO" alpha="0.25" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vibes-bg_001" translatesAutoresizingMaskIntoConstraints="NO" id="hew-iK-it3">
+                                        <rect key="frame" x="-22" y="-43" width="425" height="235"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H4M-q3-Pa0">
-                                        <rect key="frame" x="18" y="22" width="338" height="93"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5Js-ok-Jhr" userLabel="divideBar">
+                                        <rect key="frame" x="6" y="98" width="363" height="1"/>
+                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="1" id="dYa-tA-TkO"/>
+                                        </constraints>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="H4M-q3-Pa0">
+                                        <rect key="frame" x="18" y="14" width="338" height="85"/>
                                         <string key="text">How Points Work 
 In Vibes</string>
-                                        <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-Bold" family="Bodoni 72" pointSize="35"/>
+                                        <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-Bold" family="Bodoni 72" pointSize="29"/>
                                         <color key="textColor" red="0.11473900824785233" green="0.11473557353019714" blue="0.11473755538463593" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="highlightedColor" red="0.1409628838300705" green="0.14095866680145264" blue="0.14096106588840485" alpha="1" colorSpace="calibratedRGB"/>
                                         <color key="shadowColor" red="0.7717251182" green="0.77170205120000002" blue="0.77171516419999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <size key="shadowOffset" width="2" height="1"/>
                                     </label>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5Js-ok-Jhr" userLabel="divideBar">
-                                        <rect key="frame" x="6" y="118" width="363" height="1"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="H4M-q3-Pa0" secondAttribute="trailing" constant="19" id="2gy-9U-gkD"/>
+                                    <constraint firstItem="5Js-ok-Jhr" firstAttribute="top" secondItem="bpj-R6-eJo" secondAttribute="top" constant="98" id="8qy-ON-tzt"/>
+                                    <constraint firstAttribute="trailing" secondItem="5Js-ok-Jhr" secondAttribute="trailing" constant="6" id="RJg-lk-U5L"/>
+                                    <constraint firstItem="5Js-ok-Jhr" firstAttribute="leading" secondItem="bpj-R6-eJo" secondAttribute="leading" constant="6" id="UI8-Am-s2r"/>
+                                    <constraint firstAttribute="trailing" secondItem="hew-iK-it3" secondAttribute="trailing" constant="-28" id="VcF-TR-EDF"/>
+                                    <constraint firstItem="H4M-q3-Pa0" firstAttribute="leading" secondItem="bpj-R6-eJo" secondAttribute="leading" constant="18" id="YHg-BO-Blo"/>
+                                    <constraint firstItem="hew-iK-it3" firstAttribute="top" secondItem="H4M-q3-Pa0" secondAttribute="bottom" constant="-142" id="cjC-Xz-L7Z"/>
+                                    <constraint firstItem="hew-iK-it3" firstAttribute="top" secondItem="bpj-R6-eJo" secondAttribute="top" constant="-43" id="iQu-af-ROn"/>
+                                    <constraint firstItem="H4M-q3-Pa0" firstAttribute="top" secondItem="bpj-R6-eJo" secondAttribute="top" constant="14" id="oLX-ii-cdc"/>
+                                    <constraint firstAttribute="bottom" secondItem="hew-iK-it3" secondAttribute="bottom" constant="-92" id="piu-Rz-oQq"/>
+                                    <constraint firstItem="hew-iK-it3" firstAttribute="leading" secondItem="bpj-R6-eJo" secondAttribute="leading" constant="-22" id="uSd-Yi-49y"/>
+                                </constraints>
                             </view>
-                            <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eDK-hZ-Ta4">
-                                <rect key="frame" x="23" y="121" width="329" height="197"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <string key="text">During voting, you get 100 points for every Vibe you correctly match to a piece. 
-
-The Vibes you write score after  every six votes at this rate:
-
-</string>
-                                <color key="textColor" red="0.11332787573337555" green="0.11332109570503235" blue="0.11332504451274872" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="The closer your Vibe gets to 50% correct answers,  the better it scores." textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UZ5-cs-ghf">
-                                <rect key="frame" x="40" y="402" width="292" height="105"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <color key="textColor" red="0.11332787573337555" green="0.11332109570503235" blue="0.11332504451274872" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="22"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="barGraph" translatesAutoresizingMaskIntoConstraints="NO" id="Dd4-S6-0RY">
-                                <rect key="frame" x="50" y="249" width="274" height="153"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="748" image="barGraph" translatesAutoresizingMaskIntoConstraints="NO" id="Dd4-S6-0RY">
+                                <rect key="frame" x="50" y="249" width="274" height="174"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" priority="749" constant="100" id="fWe-s1-U79"/>
+                                </constraints>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a5K-y2-kCj">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a5K-y2-kCj">
                                 <rect key="frame" x="75" y="601" width="222" height="46"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="46" id="W30-e0-ScA"/>
+                                    <constraint firstAttribute="width" constant="222" id="aGK-5s-dug"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="27"/>
                                 <state key="normal" title="I get it!"/>
                                 <connections>
                                     <action selector="didTapDone:" destination="KLq-Kc-zI4" eventType="touchUpInside" id="Byk-qQ-vX4"/>
                                 </connections>
                             </button>
-                            <textView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ML-iv-KYQ">
-                                <rect key="frame" x="23" y="510" width="329" height="101"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="13" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="dap-z0-VBc">
+                                <rect key="frame" x="23" y="530" width="329" height="85"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="dap-z0-VBc" secondAttribute="height" multiplier="329:85" id="BUc-gH-j1H"/>
+                                </constraints>
                                 <string key="text">You will also pick up bonus points, 10 each for everyone who guesses on your Vibe, and 25 if they vote it clever.
 </string>
-                                <color key="textColor" red="0.11332787573337555" green="0.11332109570503235" blue="0.11332504451274872" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="12" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ihQ-AA-Ky3">
+                                <rect key="frame" x="15" y="121" width="343" height="120"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="ihQ-AA-Ky3" secondAttribute="height" multiplier="343:120" id="xMN-DL-QWA"/>
+                                </constraints>
+                                <string key="text">During voting, you get 100 points for every Vibe you correctly match to a piece. 
+
+The Vibes you write score after  every six votes at this rate:</string>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The closer your Vibe gets to 50% correct answers, the better it scores." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="13" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="IVK-oF-ibu">
+                                <rect key="frame" x="67" y="416" width="239" height="106"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="IVK-oF-ibu" secondAttribute="height" multiplier="239:106" id="1ca-BW-mrD"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="0VL-e8-PpY" firstAttribute="top" secondItem="dap-z0-VBc" secondAttribute="bottom" constant="52" id="19e-Q5-WBt"/>
+                            <constraint firstItem="1Rn-h8-0zF" firstAttribute="leading" secondItem="cJc-Ft-xyf" secondAttribute="leadingMargin" constant="39" id="1fJ-9F-2QH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="ihQ-AA-Ky3" secondAttribute="trailing" constant="1" id="3bA-ob-JV8"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="dap-z0-VBc" secondAttribute="trailing" constant="7" id="AIW-Cd-mBP"/>
+                            <constraint firstItem="ihQ-AA-Ky3" firstAttribute="top" secondItem="H4M-q3-Pa0" secondAttribute="bottom" constant="22" id="BUi-MV-i5g"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Dd4-S6-0RY" secondAttribute="trailing" constant="35" id="Hgw-MA-Lu7"/>
+                            <constraint firstItem="bpj-R6-eJo" firstAttribute="top" secondItem="tO5-ly-7Zw" secondAttribute="bottom" constant="-20" id="Hmr-w8-JYD"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="IVK-oF-ibu" secondAttribute="trailing" constant="53" id="Moi-ik-klo"/>
+                            <constraint firstItem="dap-z0-VBc" firstAttribute="top" secondItem="1Rn-h8-0zF" secondAttribute="bottom" constant="-94" id="Nhb-Gs-o4b"/>
+                            <constraint firstItem="IVK-oF-ibu" firstAttribute="top" secondItem="Dd4-S6-0RY" secondAttribute="bottom" constant="-7" id="Njb-L1-rYf"/>
+                            <constraint firstItem="ihQ-AA-Ky3" firstAttribute="leading" secondItem="cJc-Ft-xyf" secondAttribute="leadingMargin" constant="-1" id="PTh-3v-k2y"/>
+                            <constraint firstItem="dap-z0-VBc" firstAttribute="leading" secondItem="cJc-Ft-xyf" secondAttribute="leadingMargin" constant="7" id="QoN-qd-lMM"/>
+                            <constraint firstItem="IVK-oF-ibu" firstAttribute="leading" secondItem="cJc-Ft-xyf" secondAttribute="leadingMargin" constant="51" id="Rpi-sm-bKB"/>
+                            <constraint firstItem="Dd4-S6-0RY" firstAttribute="top" secondItem="ihQ-AA-Ky3" secondAttribute="bottom" constant="8" id="V4r-r6-zWQ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="1Rn-h8-0zF" secondAttribute="trailing" constant="41" id="ctz-1A-As8"/>
+                            <constraint firstItem="Dd4-S6-0RY" firstAttribute="leading" secondItem="cJc-Ft-xyf" secondAttribute="leadingMargin" constant="34" id="lc1-8U-ngo"/>
+                            <constraint firstItem="dap-z0-VBc" firstAttribute="top" secondItem="IVK-oF-ibu" secondAttribute="bottom" constant="8" id="ly7-N1-IH9"/>
+                            <constraint firstItem="ihQ-AA-Ky3" firstAttribute="top" secondItem="bpj-R6-eJo" secondAttribute="bottom" constant="21" id="p7k-qd-KhJ"/>
+                            <constraint firstItem="bpj-R6-eJo" firstAttribute="leading" secondItem="cJc-Ft-xyf" secondAttribute="leadingMargin" constant="-16" id="sdD-Qn-dV3"/>
+                            <constraint firstItem="1Rn-h8-0zF" firstAttribute="centerX" secondItem="cJc-Ft-xyf" secondAttribute="centerX" constant="-1" id="u7E-KR-MFs"/>
+                            <constraint firstItem="a5K-y2-kCj" firstAttribute="centerX" secondItem="cJc-Ft-xyf" secondAttribute="centerX" constant="-1.5" id="vhW-Cj-tCs"/>
+                            <constraint firstItem="0VL-e8-PpY" firstAttribute="top" secondItem="a5K-y2-kCj" secondAttribute="bottom" constant="20" id="voo-Tb-XNP"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="bpj-R6-eJo" secondAttribute="trailing" constant="-16" id="wiG-a0-3aN"/>
+                        </constraints>
                     </view>
                     <toolbarItems/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
