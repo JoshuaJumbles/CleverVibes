@@ -32,6 +32,8 @@ class GalleryCollectionViewController:UIViewController,UICollectionViewDelegate,
     func reloadData(){
         setupData()
         galleryGrid.reloadData()
+        let numbers = BeaconController.sharedInstance.nearbyGalleryNumbers;
+        setupGalleriesForNearby(numbers: numbers)
 //        galleryGrid.rel
         
     }
@@ -48,6 +50,8 @@ class GalleryCollectionViewController:UIViewController,UICollectionViewDelegate,
         if(asyncVibeObjects!.count > 0){
             askDisplayPointCashIn()
         }
+        
+        
     }
     
     override func viewDidLoad() {

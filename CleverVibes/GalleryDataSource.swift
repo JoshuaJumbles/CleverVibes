@@ -37,8 +37,8 @@ class GalleryDataSource {
     var highScoreRefreshDelegate : ScoreTableViewController?
     
     let selectedRoomFilter = [258,264,262,250,217,218,219,205,
-                            222,226,229,235,239,240];
-    var useFilter = true;
+                            229,239];
+    var useFilter = false;
     
     
     
@@ -368,7 +368,9 @@ class GalleryDataSource {
                 for object in JSON{
                     var beaconMapping = BeaconGalleryMapping(config:object,galleryNum:roomId);
                     self.loadedBeaconMappings.append(beaconMapping);
+                    BeaconController.sharedInstance.registerNewRegionWithMapping(mapping: beaconMapping)
                 }
+                
             }
         }
         
