@@ -101,22 +101,24 @@ class VibeDisplayViewController:UIViewController,UICollectionViewDelegate{
             
             answerGridViewController = vc
             vc.clue = vibe?.clue;
-//            vc.clueTitle.text = vibe?.clue
+            //            vc.clueTitle.text = vibe?.clue
             vc.dataSource = artGridDataSource;
             vc.delegate = self;
             
             navigationController?.pushViewController(vc, animated: true)
         }
+
     }
     @IBAction func didTouchWriteButton(_ sender: Any) {
         if let vc = storyboard?.instantiateViewController(withIdentifier: "VibeWriteScreen") as? VibeWriteViewController{
             
             vc.artDataSource = artGridDataSource
             vc.galleryName = galleryName
-
+            
             
             navigationController?.pushViewController(vc, animated: true)
         }
+
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

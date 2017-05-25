@@ -115,6 +115,8 @@ class VibePageViewController:UIPageViewController,UIPageViewControllerDataSource
                 viewController.setupWith(vibe: vibeList[index]);
                 viewList.append(viewController);
                 
+                viewController.view.layoutIfNeeded();
+                
                 
             }
         }

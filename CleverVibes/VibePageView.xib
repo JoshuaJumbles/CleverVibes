@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="vibes-bg_001" translatesAutoresizingMaskIntoConstraints="NO" id="3cD-Vy-G4b">
+                    <rect key="frame" x="-21" y="137" width="417" height="423"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                </imageView>
+                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gay-db-GYS" userLabel="divideBar">
+                    <rect key="frame" x="67" y="582" width="240" height="1"/>
+                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="240" id="Wge-mi-Rd0"/>
+                        <constraint firstAttribute="height" constant="1" id="eGR-aT-c03"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Si5-Pn-ODO">
+                    <rect key="frame" x="49" y="531" width="277" height="46"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="46" id="mXs-13-yxn"/>
+                        <constraint firstAttribute="width" constant="277" id="t0K-qH-Qpx"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="30"/>
+                    <state key="normal" title="I think I know.."/>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="This is a default clue, the defaultiest!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="byU-wq-G0K">
+                    <rect key="frame" x="32" y="205" width="310" height="190"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-Bold" family="Bodoni 72" pointSize="48"/>
+                    <color key="textColor" red="0.1136214882" green="0.11361473800000001" blue="0.1136186644" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                    <color key="shadowColor" red="0.7717251182" green="0.77170205120000002" blue="0.77171516419999997" alpha="1" colorSpace="calibratedRGB"/>
+                    <size key="shadowOffset" width="2" height="1"/>
+                </label>
+                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Nc9-Ze-y7r" userLabel="FreshVoteView">
+                    <rect key="frame" x="67" y="420" width="240" height="92"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" alpha="0.30000001192092896" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="fresh" translatesAutoresizingMaskIntoConstraints="NO" id="zrq-fn-zes">
+                            <rect key="frame" x="84" y="-6" width="72" height="70"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.30000001192092896" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Very fresh Vibe!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Af9-yU-Nkp">
+                            <rect key="frame" x="-33" y="61" width="306" height="31"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="21"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="92" id="BJO-6S-Gtz"/>
+                        <constraint firstAttribute="width" constant="240" id="fgf-Q7-JaW"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="&lt;      Swipe for more      &gt;" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cZ0-JW-Wfa">
+                    <rect key="frame" x="16" y="633" width="343" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="cZ0-JW-Wfa" secondAttribute="height" multiplier="49:3" id="08f-7e-WGJ"/>
+                        <constraint firstAttribute="width" constant="343" id="wIz-pg-PTO"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="15"/>
+                    <color key="textColor" red="0.4266758859" green="0.42666310070000002" blue="0.42667034269999998" alpha="0.30210092910000003" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="29k-tV-URh" userLabel="CleverVoteView">
+                    <rect key="frame" x="67" y="420" width="240" height="92"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" alpha="0.30000001192092896" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="lightbulb-icon-png-effects-17" translatesAutoresizingMaskIntoConstraints="NO" id="XRO-Pp-BbI">
+                            <rect key="frame" x="84" y="-6" width="72" height="70"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" alpha="0.30000001192092896" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Often Voted Clever!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wbI-Li-PAV">
+                            <rect key="frame" x="-33" y="61" width="306" height="31"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="21"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="240" id="DIq-q5-7ad"/>
+                        <constraint firstAttribute="height" constant="92" id="JIR-dF-5rv"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VG7-oz-1IK">
+                    <rect key="frame" x="32" y="586" width="310" height="46"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="310" id="cAl-xQ-n5n"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="30"/>
+                    <state key="normal" title="I have a Vibe to write!"/>
+                </button>
+                <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eS9-Lu-xMa" userLabel="Gallery">
+                    <rect key="frame" x="67" y="46" width="240" height="101"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PBa-yK-wqe">
+                            <rect key="frame" x="87" y="31" width="73" height="73"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        </view>
+                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="arq-W0-GSq">
+                            <rect key="frame" x="83" y="27" width="73" height="73"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6s3-Ac-Hum">
+                                    <rect key="frame" x="0.0" y="0.0" width="73" height="8"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" red="0.4424103304" green="0.7348287563" blue="0.44331913849999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </view>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="250" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Aa-2n-bst">
+                                    <rect key="frame" x="-5" y="3" width="82" height="66"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" name="Futura-CondensedMedium" family="Futura" pointSize="38"/>
+                                    <color key="textColor" red="0.25800234080000001" green="0.25798571110000001" blue="0.25799542669999997" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" red="0.92881357669999998" green="0.92878568169999998" blue="0.92880153659999998" alpha="1" colorSpace="calibratedRGB"/>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="101" id="BXB-2o-hLq"/>
+                        <constraint firstAttribute="width" constant="240" id="zIP-bz-ZYY"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="cZ0-JW-Wfa" firstAttribute="width" secondItem="cZ0-JW-Wfa" secondAttribute="height" multiplier="49:3" id="iYc-CD-6wy"/>
+                <constraint firstItem="VG7-oz-1IK" firstAttribute="top" secondItem="gay-db-GYS" secondAttribute="bottom" constant="3" id="luL-h7-rDA"/>
+                <constraint firstItem="VG7-oz-1IK" firstAttribute="top" secondItem="Si5-Pn-ODO" secondAttribute="bottom" constant="9" id="yD7-q2-jH7"/>
+            </constraints>
+            <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="fresh" width="100" height="100"/>
+        <image name="lightbulb-icon-png-effects-17" width="256" height="256"/>
+        <image name="vibes-bg_001" width="750" height="960"/>
+    </resources>
+</document>

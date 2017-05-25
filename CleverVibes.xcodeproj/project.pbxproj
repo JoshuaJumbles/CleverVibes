@@ -21,6 +21,7 @@
 		9B6A1F951EA72AAD00D72A31 /* VibeWriteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6A1F941EA72AAD00D72A31 /* VibeWriteViewController.swift */; };
 		9B6A1F971EA72C3E00D72A31 /* UploadVibeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6A1F961EA72C3E00D72A31 /* UploadVibeViewController.swift */; };
 		9B6A1F991EA7ADF800D72A31 /* VibeUploadController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B6A1F981EA7ADF800D72A31 /* VibeUploadController.swift */; };
+		9B6C37261ED760730018DFBA /* VibePageView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9B6C37251ED760730018DFBA /* VibePageView.xib */; };
 		9B910FD51EA00ABA0076386C /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B910FD41EA00ABA0076386C /* IntroViewController.swift */; };
 		9B910FD91EA00AC70076386C /* GalleryGridCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B910FD71EA00AC70076386C /* GalleryGridCell.swift */; };
 		9B910FDD1EA00AEA0076386C /* GalleryDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B910FDC1EA00AEA0076386C /* GalleryDataSource.swift */; };
@@ -93,6 +94,7 @@
 		9B6A1F941EA72AAD00D72A31 /* VibeWriteViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VibeWriteViewController.swift; sourceTree = "<group>"; };
 		9B6A1F961EA72C3E00D72A31 /* UploadVibeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UploadVibeViewController.swift; sourceTree = "<group>"; };
 		9B6A1F981EA7ADF800D72A31 /* VibeUploadController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VibeUploadController.swift; sourceTree = "<group>"; };
+		9B6C37251ED760730018DFBA /* VibePageView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VibePageView.xib; sourceTree = "<group>"; };
 		9B910FD41EA00ABA0076386C /* IntroViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
 		9B910FD71EA00AC70076386C /* GalleryGridCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryGridCell.swift; sourceTree = "<group>"; };
 		9B910FDC1EA00AEA0076386C /* GalleryDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GalleryDataSource.swift; sourceTree = "<group>"; };
@@ -226,6 +228,7 @@
 				B371CC351EB3E722004992F7 /* VibesTabBarController.swift */,
 				9B93BF341EB7D59200530C0F /* VibesCashInViewController.swift */,
 				9B93BF361EB7EFA500530C0F /* HelpViewController.swift */,
+				9B6C37251ED760730018DFBA /* VibePageView.xib */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -462,6 +465,7 @@
 				9B0A0DBF1EB016360087D175 /* GallerySeparatorView.xib in Resources */,
 				9B910FF81EA0812A0076386C /* strippedData.json in Resources */,
 				9BE3A0851EA009FC00F66258 /* Main.storyboard in Resources */,
+				9B6C37261ED760730018DFBA /* VibePageView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
