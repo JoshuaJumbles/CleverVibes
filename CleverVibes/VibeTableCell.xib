@@ -18,10 +18,9 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="92"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Lorem ipsum dolor sit amet, eum tantas" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xkk-KB-8JQ">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum dolor sit amet, eum tantas" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="xkk-KB-8JQ">
                         <rect key="frame" x="19" y="0.0" width="190" height="63"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="190" id="ig2-NN-TwI"/>
                             <constraint firstAttribute="height" constant="63" id="uEz-na-L8H"/>
                         </constraints>
                         <fontDescription key="fontDescription" name="BodoniSvtyTwoITCTT-Bold" family="Bodoni 72" pointSize="22"/>
@@ -71,6 +70,7 @@
                 <constraints>
                     <constraint firstAttribute="trailingMargin" secondItem="8CD-ZV-ZHn" secondAttribute="trailing" constant="3" id="1tH-IW-hPp"/>
                     <constraint firstItem="23u-aS-Rl7" firstAttribute="leading" secondItem="u5q-M2-cfe" secondAttribute="trailing" constant="-4" id="7Ix-CL-oMX"/>
+                    <constraint firstItem="ojk-Yv-7R7" firstAttribute="leading" secondItem="xkk-KB-8JQ" secondAttribute="trailing" constant="4" id="Cq3-OR-nE4"/>
                     <constraint firstItem="8CD-ZV-ZHn" firstAttribute="top" secondItem="23u-aS-Rl7" secondAttribute="bottom" constant="-2" id="IBh-4G-umN"/>
                     <constraint firstItem="23u-aS-Rl7" firstAttribute="centerY" secondItem="eZ2-uB-JLe" secondAttribute="centerY" id="LP3-o8-Dvv"/>
                     <constraint firstItem="23u-aS-Rl7" firstAttribute="leading" secondItem="ojk-Yv-7R7" secondAttribute="trailing" constant="-4" id="Nfp-PU-75e"/>
@@ -78,6 +78,7 @@
                     <constraint firstItem="ojk-Yv-7R7" firstAttribute="centerY" secondItem="eZ2-uB-JLe" secondAttribute="centerY" id="YZb-OK-uBJ"/>
                     <constraint firstAttribute="trailingMargin" secondItem="23u-aS-Rl7" secondAttribute="trailing" constant="3" id="daQ-TD-SPY"/>
                     <constraint firstItem="u5q-M2-cfe" firstAttribute="centerY" secondItem="eZ2-uB-JLe" secondAttribute="centerY" id="ib2-kU-Euf"/>
+                    <constraint firstItem="xkk-KB-8JQ" firstAttribute="top" secondItem="eZ2-uB-JLe" secondAttribute="topMargin" constant="-8" id="tiO-Vl-Y4I"/>
                     <constraint firstAttribute="bottomMargin" secondItem="8CD-ZV-ZHn" secondAttribute="bottom" constant="-1" id="tqc-bh-K4x"/>
                 </constraints>
             </tableViewCellContentView>
