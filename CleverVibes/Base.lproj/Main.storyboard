@@ -1070,46 +1070,68 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="temp-bg" translatesAutoresizingMaskIntoConstraints="NO" id="Kv8-ez-Kda">
-                                <rect key="frame" x="0.0" y="49" width="375" height="513"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Thanks for sharing!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tW1-hM-EG6">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thanks for sharing!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="tW1-hM-EG6">
                                 <rect key="frame" x="46" y="130" width="290" height="316"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Futura-CondensedExtraBold" family="Futura" pointSize="61"/>
                                 <color key="textColor" red="0.11009032279253006" green="0.11008377373218536" blue="0.11008759588003159" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Plx-hJ-UcH">
-                                <rect key="frame" x="66" y="530" width="242" height="65"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="mnw-9x-c4q">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                            </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Submitting.." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Px9-G2-mlg">
+                                <rect key="frame" x="0.0" y="130" width="375" height="316"/>
+                                <fontDescription key="fontDescription" name="Futura-MediumItalic" family="Futura" pointSize="61"/>
+                                <color key="textColor" red="0.11009032279253006" green="0.11008377373218536" blue="0.11008759588003159" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="It may take a minute for your vibe to appear." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9jW-yx-1rs">
+                                <rect key="frame" x="80" y="450" width="214" height="72"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="214" id="hTi-jh-QWd"/>
+                                    <constraint firstAttribute="height" constant="72" id="wFV-eM-5Aa"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                <color key="textColor" red="0.32710397243499756" green="0.32709422707557678" blue="0.32709974050521851" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Plx-hJ-UcH">
+                                <rect key="frame" x="106" y="539" width="163" height="66"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="163" id="76X-P2-YBL"/>
+                                    <constraint firstAttribute="height" constant="66" id="Z4w-qS-1Nl"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="41"/>
                                 <state key="normal" title="Done"/>
                                 <connections>
                                     <action selector="didTapDone:" destination="EF9-M3-crj" eventType="touchUpInside" id="qXi-rs-ceX"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="mnw-9x-c4q">
-                                <rect key="frame" x="173" y="270" width="37" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </activityIndicatorView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Submitting.." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Px9-G2-mlg">
-                                <rect key="frame" x="0.0" y="130" width="375" height="316"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Futura-MediumItalic" family="Futura" pointSize="61"/>
-                                <color key="textColor" red="0.11009032279253006" green="0.11008377373218536" blue="0.11008759588003159" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="It may take a minute for your vibe to appear." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9jW-yx-1rs">
-                                <rect key="frame" x="80" y="401" width="214" height="72"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                <color key="textColor" red="0.32710397243499756" green="0.32709422707557678" blue="0.32709974050521851" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vibes-bg_002" translatesAutoresizingMaskIntoConstraints="NO" id="Kv8-ez-Kda">
+                                <rect key="frame" x="-115" y="240" width="604" height="234"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="WoX-ta-v7x" firstAttribute="top" secondItem="tW1-hM-EG6" secondAttribute="bottom" constant="221" id="1I0-5M-urw"/>
+                            <constraint firstItem="Px9-G2-mlg" firstAttribute="top" secondItem="qwH-4z-p87" secondAttribute="bottom" constant="110" id="1J0-mC-VKv"/>
+                            <constraint firstItem="Plx-hJ-UcH" firstAttribute="centerX" secondItem="Kv8-ez-Kda" secondAttribute="centerX" id="2Mh-gd-53t"/>
+                            <constraint firstItem="mnw-9x-c4q" firstAttribute="centerX" secondItem="HW7-i0-WNn" secondAttribute="centerX" id="4lw-vM-VKI"/>
+                            <constraint firstItem="WoX-ta-v7x" firstAttribute="top" secondItem="Px9-G2-mlg" secondAttribute="bottom" constant="221" id="BxM-jV-Q9K"/>
+                            <constraint firstItem="WoX-ta-v7x" firstAttribute="top" secondItem="Plx-hJ-UcH" secondAttribute="bottom" constant="62" id="Emy-7l-MO6"/>
+                            <constraint firstItem="WoX-ta-v7x" firstAttribute="top" secondItem="Kv8-ez-Kda" secondAttribute="bottom" constant="193" id="HU2-7y-heO"/>
+                            <constraint firstItem="9jW-yx-1rs" firstAttribute="centerX" secondItem="HW7-i0-WNn" secondAttribute="centerX" id="McK-2h-dEv"/>
+                            <constraint firstItem="9jW-yx-1rs" firstAttribute="top" secondItem="tW1-hM-EG6" secondAttribute="bottom" constant="4" id="Umk-GG-Wmy"/>
+                            <constraint firstItem="tW1-hM-EG6" firstAttribute="leading" secondItem="HW7-i0-WNn" secondAttribute="leadingMargin" constant="30" id="UxF-Kc-VGs"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Px9-G2-mlg" secondAttribute="trailing" constant="-16" id="a4i-4W-2ZN"/>
+                            <constraint firstItem="Kv8-ez-Kda" firstAttribute="top" secondItem="qwH-4z-p87" secondAttribute="bottom" constant="220" id="faP-Ca-iMG"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="tW1-hM-EG6" secondAttribute="trailing" constant="23" id="gJd-WK-5uF"/>
+                            <constraint firstItem="mnw-9x-c4q" firstAttribute="centerY" secondItem="HW7-i0-WNn" secondAttribute="centerY" id="hAO-xV-cHQ"/>
+                            <constraint firstItem="Kv8-ez-Kda" firstAttribute="leading" secondItem="HW7-i0-WNn" secondAttribute="leadingMargin" constant="-131" id="kF3-zB-f1V"/>
+                            <constraint firstItem="Px9-G2-mlg" firstAttribute="leading" secondItem="HW7-i0-WNn" secondAttribute="leadingMargin" constant="-16" id="mDi-Ff-3NJ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Kv8-ez-Kda" secondAttribute="trailing" constant="-130" id="qQo-A8-LeE"/>
+                            <constraint firstItem="tW1-hM-EG6" firstAttribute="top" secondItem="qwH-4z-p87" secondAttribute="bottom" constant="110" id="s2T-L2-wYT"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="mnw-9x-c4q" id="toD-EQ-tFZ"/>
