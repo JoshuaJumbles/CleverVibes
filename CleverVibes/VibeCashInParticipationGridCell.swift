@@ -23,7 +23,7 @@ class VibeCashInParticipationGridCell:UICollectionViewCell{
         var total = config.numberOfNewAnswers * 10
         total += config.numberOfCleverVotes * 25
     
-        var str = "\(config.numberOfCleverVotes) New Clever Votes, \(config.numberOfNewAnswers) New Attempts"
+        var str = "\(config.numberOfCleverVotes) Clever Votes, \(config.numberOfNewAnswers) Attempts"
         countsLabel.text = str
     }
 }

@@ -50,13 +50,11 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
-                    <view opaque="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n5Z-Xn-fbn">
+                    <view opaque="NO" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n5Z-Xn-fbn">
                         <rect key="frame" x="67" y="157" width="240" height="91"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="5 New Clever Votes, 4 New Attempts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qPI-tn-e0K">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="5 Clever Votes, 4 Attempts" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="qPI-tn-e0K">
                                 <rect key="frame" x="-46" y="8" width="332" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="18"/>
                                 <color key="textColor" red="0.39062780141830444" green="0.39061611890792847" blue="0.39062273502349854" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -70,6 +68,11 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="qPI-tn-e0K" firstAttribute="top" secondItem="n5Z-Xn-fbn" secondAttribute="top" constant="8" id="0JL-SJ-Gla"/>
+                            <constraint firstAttribute="bottom" secondItem="qPI-tn-e0K" secondAttribute="bottom" constant="62" id="Wsv-bN-HYi"/>
+                            <constraint firstAttribute="width" constant="240" id="cFh-of-kBk"/>
+                        </constraints>
                     </view>
                     <imageView opaque="NO" userInteractionEnabled="NO" alpha="0.59999999999999998" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="vibes-bg_001" translatesAutoresizingMaskIntoConstraints="NO" id="glw-5o-lqy">
                         <rect key="frame" x="-3" y="-14" width="381" height="392"/>
@@ -77,6 +80,12 @@
                     </imageView>
                 </subviews>
             </view>
+            <constraints>
+                <constraint firstItem="qPI-tn-e0K" firstAttribute="leading" secondItem="UY0-eu-L3t" secondAttribute="leading" constant="21" id="C5F-CP-XFh"/>
+                <constraint firstItem="n5Z-Xn-fbn" firstAttribute="top" secondItem="UY0-eu-L3t" secondAttribute="top" constant="157" id="DM8-25-S94"/>
+                <constraint firstAttribute="trailing" secondItem="qPI-tn-e0K" secondAttribute="trailing" constant="22" id="Fkn-Yr-zbq"/>
+                <constraint firstItem="n5Z-Xn-fbn" firstAttribute="centerX" secondItem="UY0-eu-L3t" secondAttribute="centerX" id="Hxd-WF-OsF"/>
+            </constraints>
             <size key="customSize" width="447" height="364"/>
             <connections>
                 <outlet property="answerCountsLabel" destination="lWr-q7-iai" id="KlQ-MK-A3e"/>

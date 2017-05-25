@@ -37,11 +37,8 @@ class BeaconController:NSObject,CLLocationManagerDelegate{
         beaconRegion.notifyOnExit = true;
         
         let auth  = CLLocationManager.authorizationStatus();
-        if(auth != CLAuthorizationStatus.authorizedAlways){
-            manager.requestAlwaysAuthorization()
-            
-            
-//            CLLocationManager.isRangingAvailable()
+        if(auth != CLAuthorizationStatus.authorizedWhenInUse){
+            manager.requestWhenInUseAuthorization()
         }
         CLLocationManager.locationServicesEnabled()
         print(auth)

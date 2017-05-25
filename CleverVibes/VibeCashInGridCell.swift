@@ -33,11 +33,11 @@ class VibeCashInGridCell:UICollectionViewCell{
         var total = config.cleverPoints()
         total += config.newAnswerPoints()
         bonusPointsLabel.text = "+\(total) pts"
-        var str = "";
+        var str = "New:";
         if(config.numberOfCleverVotes > 0){
-            str = "\(config.numberOfCleverVotes) New Clever Votes, "
+            str = "\(str)\(config.numberOfCleverVotes) Clever Votes, "
         }
-        str =  "\(str)\(config.numberOfNewAnswers) New Attempts"
+        str =  "\(str)\(config.numberOfNewAnswers) Attempts"
         countsLabel.text = str
         
         backgroundImage.image = UIImage(named:"vibes-bg_00\(config.randomArtIndex)");
