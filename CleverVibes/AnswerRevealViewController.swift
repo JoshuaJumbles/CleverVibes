@@ -24,18 +24,36 @@ class AnswerRevealViewController:UIViewController{
     @IBOutlet weak var cleverButton: UIButton!
     @IBOutlet weak var rudeButton: UIButton!
     
+    @IBOutlet weak var youAreLabel: UILabel!
     
     var vibe = VibeObject()
     var artChoice = ArtObject()
     
     var navController : UINavigationController?;
     
+    var isDisplayingHistoricalAnswer = false;
+    var historicalCorrect = false;
+    
+    func setupWithHistoricalAnswer(vibe obj: VibeObject,wasCorrect:Bool){
+        vibe = obj;
+        loadArt()
+        isDisplayingHistoricalAnswer = true;
+        
+        historicalCorrect = wasCorrect;
+    }
+    
     func setupWith(vibe obj:VibeObject, answerChoice:ArtObject){
         vibe = obj;
         artChoice = answerChoice
         
-        if let artObject = GalleryDataSource.sharedInstance.objectForId(objectNum: obj.answerObjectNumber){
+        loadArt()
+        isDisplayingHistoricalAnswer = false;
         
+    }
+    
+    func loadArt(){
+        if let artObject = GalleryDataSource.sharedInstance.objectForId(objectNum: vibe.answerObjectNumber){
+            
             let url = artObject.fullURL;
             Alamofire.request(url).responseImage { response in
                 if let image = response.result.value {
@@ -50,20 +68,27 @@ class AnswerRevealViewController:UIViewController{
         }else{
             print("Error: no art object for answer number");
         }
-
-        
     }
     
     override func viewDidLoad() {
-        let correct = (artChoice.objectNumber == vibe.answerObjectNumber);
-        if(correct){
-            ScoreController.shareScoreInstance.addPoints(points: 100);
-            vibe.correctAnswers += 1;
+        var correct = false;
+        if(isDisplayingHistoricalAnswer){
+            cleverButton.isEnabled = false;
+            rudeButton.isEnabled = false;
+            correct = historicalCorrect;
+            youAreLabel.text = "You were..."
         }else{
-            ScoreController.shareScoreInstance.addUsedVibe(vibeId: vibe.uuid);
-            vibe.incorrectAnswers += 1;
+            youAreLabel.text = "You are..."
+            correct = (artChoice.objectNumber == vibe.answerObjectNumber);
+            ScoreController.shareScoreInstance.addAnsweredVibe(vibeId: vibe.uuid, correct: correct);
+            if(correct){
+                ScoreController.shareScoreInstance.addPoints(points: 100);
+                vibe.correctAnswers += 1;
+            }else{
+                ScoreController.shareScoreInstance.addUsedVibe(vibeId: vibe.uuid);
+                vibe.incorrectAnswers += 1;
+            }
         }
-        
         pointsGainedLabel.isHidden = !correct;
         
         answerStatusLabel.text = (correct) ? "CORRECT!" : "INCORRECT";
@@ -86,7 +111,10 @@ class AnswerRevealViewController:UIViewController{
     }
     
     func dismissAndReturnToHub(){
-        VibeUploadController.uploadVibeChanges(vibe: vibe, isPersonalVibe:false);
+        if(!isDisplayingHistoricalAnswer){
+            VibeUploadController.uploadVibeChanges(vibe: vibe, isPersonalVibe:false);
+        }
+        
         dismiss(animated: true) {
             self.navController?.popToRootViewController(animated: true);
         }

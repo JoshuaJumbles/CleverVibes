@@ -50,6 +50,18 @@ class ScoreController{
         return empty;
     }
     
+    func addAnsweredVibe(vibeId:String, correct:Bool){
+        UserDefaults.standard.setValue(correct, forKey: "answerHistory_\(vibeId)");
+        UserDefaults.standard.synchronize()
+    }
+    
+    func getAnsweredVibeWasCorrect(vibeId:String)-> Bool?{
+        if let wasCorrect = UserDefaults.standard.value(forKey: "answerHistory_\(vibeId)") as? Bool{
+            return wasCorrect;
+        }
+        return nil;
+    }
+    
     func addPersonalVibe(vibeId:String){
         var list = getPersonalVibes();
         list.append(vibeId);

@@ -30,6 +30,8 @@ class VibeDisplayViewController:UIViewController,UICollectionViewDelegate{
     
     var galleryName = ""
     
+    var hasHistoricalAnswer = false
+    
     
     func clipGalleryName(name:String)->String{
         var clipString = name;
@@ -65,7 +67,13 @@ class VibeDisplayViewController:UIViewController,UICollectionViewDelegate{
             if(alreadyAnsweredList.contains(vibe!.uuid)){
                 
                 answerButton.setTitle("I already answered!", for: UIControlState.disabled);
-                answerButton.isEnabled = false;
+                
+                if let answerHistory = ScoreController.shareScoreInstance.getAnsweredVibeWasCorrect(vibeId: vibe!.uuid){
+                    answerButton.setTitle("I already answered!", for: UIControlState.normal);
+                    hasHistoricalAnswer = true
+                }else{
+                    answerButton.isEnabled = false;
+                }
                 
             }else if(userCreatedList.contains(vibe!.uuid)){
                 answerButton.setTitle("I made this vibe!", for: UIControlState.disabled);
@@ -97,6 +105,24 @@ class VibeDisplayViewController:UIViewController,UICollectionViewDelegate{
     }
     
     @IBAction func didTouchAnswerButton(_ sender: Any) {
+        if(hasHistoricalAnswer){
+            loadHistoricalAnswer()
+        }else{
+            loadAnswerGrid()
+        }
+    }
+    
+    func loadHistoricalAnswer(){
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "AnswerRevealScreen") as? AnswerRevealViewController{
+            let wasCorrect = ScoreController.shareScoreInstance.getAnsweredVibeWasCorrect(vibeId: vibe!.uuid)!;
+            vc.setupWithHistoricalAnswer(vibe: vibe!, wasCorrect: wasCorrect);
+            vc.navController = navigationController;
+            
+            navigationController?.present(vc, animated: true, completion: nil)
+        }
+    }
+    
+    func loadAnswerGrid(){
         if let vc = storyboard?.instantiateViewController(withIdentifier: "VibeAnswerArtGridScreen") as? AnswerArtSelectionViewController{
             
             answerGridViewController = vc
@@ -107,8 +133,8 @@ class VibeDisplayViewController:UIViewController,UICollectionViewDelegate{
             
             navigationController?.pushViewController(vc, animated: true)
         }
-
     }
+    
     @IBAction func didTouchWriteButton(_ sender: Any) {
         if let vc = storyboard?.instantiateViewController(withIdentifier: "VibeWriteScreen") as? VibeWriteViewController{
             

@@ -23,6 +23,7 @@ class ArtCollectionDataSource:NSObject,UICollectionViewDataSource{
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         var cell = collectionView.dequeueReusableCell(withReuseIdentifier: "artCell", for: indexPath) as? ArtGridCell;
         
+//        cell!.thumbnailImage
         cell!.setupWithImageURL(url: artObjectSet[indexPath.row].thumbnailURL);
         cell!.objectNumberLabel.text = "\(artObjectSet[indexPath.row].objectNumber)";
 //        if(cell == nil){

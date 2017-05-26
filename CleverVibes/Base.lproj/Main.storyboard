@@ -1349,6 +1349,7 @@
                         <outlet property="pointsGainedLabel" destination="f7u-R1-ODv" id="Pmb-lr-IcP"/>
                         <outlet property="rudeButton" destination="D5F-sJ-iyD" id="RYn-Ey-YXM"/>
                         <outlet property="vibeClue" destination="aYJ-d7-J8n" id="qzC-If-p8C"/>
+                        <outlet property="youAreLabel" destination="4Da-82-J9L" id="OYa-Hh-Dls"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Xd-Y0-Dzk" userLabel="First Responder" sceneMemberID="firstResponder"/>
