@@ -36,9 +36,9 @@ class GalleryDataSource {
     var collectionRefreshDelegate : GalleryCollectionViewController?
     var highScoreRefreshDelegate : ScoreTableViewController?
     
-    let selectedRoomFilter = [258,264,262,250,217,218,219,205,
+    let selectedRoomFilter = [152,155,159,258,264,262,250,218,219,205,
                             229,239];
-    var useFilter = false;
+    var useFilter = true;
     
     
     

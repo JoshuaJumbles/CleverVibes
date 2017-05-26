@@ -5,6 +5,7 @@
     </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -20,9 +21,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="vibes-bg_001" translatesAutoresizingMaskIntoConstraints="NO" id="Jt1-V7-lVH">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="vibes-bg_001" translatesAutoresizingMaskIntoConstraints="NO" id="Jt1-V7-lVH">
                                 <rect key="frame" x="-98" y="267" width="586" height="312"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Vibes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PCH-vl-TPa">
                                 <rect key="frame" x="83" y="252" width="208" height="162"/>
@@ -33,8 +33,12 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="Jt1-V7-lVH" secondAttribute="trailing" constant="-129" id="A3x-h1-PPR"/>
+                            <constraint firstItem="Jt1-V7-lVH" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" constant="247" id="bGp-e7-RZy"/>
                             <constraint firstItem="PCH-vl-TPa" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="cmN-JD-AN0"/>
                             <constraint firstItem="PCH-vl-TPa" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="sRj-TF-XAu"/>
+                            <constraint firstItem="Jt1-V7-lVH" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" constant="-114" id="yO5-o1-93f"/>
+                            <constraint firstItem="xb3-aO-Qok" firstAttribute="top" secondItem="Jt1-V7-lVH" secondAttribute="bottom" constant="88" id="zrn-Fy-wPP"/>
                         </constraints>
                     </view>
                 </viewController>
