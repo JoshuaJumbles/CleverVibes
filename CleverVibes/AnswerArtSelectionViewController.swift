@@ -26,7 +26,7 @@ class AnswerArtSelectionViewController:UIViewController{
             clueTitle.text = clue!;
         }
         
-        var nib = UINib(nibName: "ArtGridCell", bundle: Bundle.main)
+      let nib = UINib(nibName: "ArtGridCell", bundle: Bundle.main)
         collectionView.register(nib, forCellWithReuseIdentifier: "artCell")
     }
 }

@@ -92,8 +92,10 @@ class AnswerRevealViewController:UIViewController{
         pointsGainedLabel.isHidden = !correct;
         
         answerStatusLabel.text = (correct) ? "CORRECT!" : "INCORRECT";
-        answerStatusLabel.textColor = (!correct) ? UIColor.init(colorLiteralRed: 223.0/255.0, green: 76.0/255.0, blue: 154.0/255.0, alpha: 1.0): UIColor.init(colorLiteralRed: 45.0/255.0, green: 144.0/255.0, blue: 87.0/255.0, alpha: 1.0);
-        
+      answerStatusLabel.textColor = (!correct) ? UIColor(red: 223.0/255.0, green: 76.0/255.0, blue: 154.0/255.0, alpha: 1.0) : UIColor(red: 45.0/255.0, green: 144.0/255.0, blue: 87.0/255.0, alpha: 1.0)
+          
+//          .init(colorLiteralRed: 223.0/255.0, green: 76.0/255.0, blue: 154.0/255.0, alpha: 1.0): UIColor.init(colorLiteralRed: 45.0/255.0, green: 144.0/255.0, blue: 87.0/255.0, alpha: 1.0);
+      
         vibeClue.text = vibe.clue
     }
     

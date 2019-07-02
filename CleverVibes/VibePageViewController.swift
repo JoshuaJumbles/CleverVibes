@@ -24,13 +24,13 @@ class VibePageViewController:UIPageViewController,UIPageViewControllerDataSource
             return;
         }
 //        vibeList = list;
-        var freshVibes = GalleryDataSource.sharedInstance.freshVibesForList(vibeList: list,useFresh: true);
-        var staleVibes = GalleryDataSource.sharedInstance.freshVibesForList(vibeList: list, useFresh: false)
+      let freshVibes = GalleryDataSource.sharedInstance.freshVibesForList(vibeList: list,useFresh: true);
+        let staleVibes = GalleryDataSource.sharedInstance.freshVibesForList(vibeList: list, useFresh: false)
         
         var cleverSortedList = freshVibes.sorted(by:{$0.cleverVotes > $1.cleverVotes});
         var freshSortedList = freshVibes.sorted(by:{$0.correctAnswers + $0.incorrectAnswers < $1.correctAnswers + $1.incorrectAnswers});
         
-        var largerIndex = (cleverSortedList.count > freshSortedList.count) ? cleverSortedList.count : freshSortedList.count;
+        let largerIndex = (cleverSortedList.count > freshSortedList.count) ? cleverSortedList.count : freshSortedList.count;
         
         if(largerIndex == 0){
             vibeList = staleVibes;
@@ -41,7 +41,7 @@ class VibePageViewController:UIPageViewController,UIPageViewControllerDataSource
         vibeList = [];
         for i in 0...largerIndex - 1{
             if(i<cleverSortedList.count){
-                var cleverVibe = cleverSortedList[i];
+                let cleverVibe = cleverSortedList[i];
                 if(!vibeList.contains(where: { element in
                     return element.uuid == cleverVibe.uuid;
                 })){
@@ -50,7 +50,7 @@ class VibePageViewController:UIPageViewController,UIPageViewControllerDataSource
             }
             
             if(i<freshSortedList.count){
-                var freshVibe = freshSortedList[i];
+                let freshVibe = freshSortedList[i];
                 if(!vibeList.contains(where: { element in
                     return element.uuid == freshVibe.uuid;
                 })){
@@ -70,10 +70,7 @@ class VibePageViewController:UIPageViewController,UIPageViewControllerDataSource
         self.view.backgroundColor = UIColor.white
         setupViews()
         
-//        self.view.backgroundColor = UIColor.blue;
-//        if(vibeList.count <= 0){
-//            
-//        }else{
+
         setViewControllers([viewList[0]], direction: UIPageViewControllerNavigationDirection.reverse, animated: false, completion: nil);
             
         
@@ -84,12 +81,12 @@ class VibePageViewController:UIPageViewController,UIPageViewControllerDataSource
         
         GalleryDataSource.sharedInstance;
         
-        var button = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: "goBack")
+      let button = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: #selector(goBack))
         self.navigationItem.backBarButtonItem = button
         
     }
     
-    func goBack()
+  @objc func goBack()
     {
         self.navigationController?.popViewController(animated: true)
     }

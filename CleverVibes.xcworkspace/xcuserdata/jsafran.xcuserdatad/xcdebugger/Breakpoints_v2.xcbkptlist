@@ -250,7 +250,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CleverVibes/VibeDisplayViewController.swift"
-            timestampString = "517507608.424531"
+            timestampString = "558724418.3151799"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "45"
@@ -337,22 +337,6 @@
                   offsetFromSymbolStart = "1508">
                </Location>
             </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CleverVibes/GalleryCollectionViewController.swift"
-            timestampString = "515512810.582932"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "245"
-            endingLineNumber = "245"
-            landmarkName = "GalleryCollectionViewController"
-            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -549,7 +533,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CleverVibes/VibePageViewController.swift"
-            timestampString = "515094313.434725"
+            timestampString = "558724418.315542"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "64"
@@ -581,28 +565,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CleverVibes/VibePageViewController.swift"
-            timestampString = "515094313.434725"
+            timestampString = "558724418.315645"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "102"
-            endingLineNumber = "102"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
             landmarkName = "setupViews()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CleverVibes/VibePageViewController.swift"
-            timestampString = "515094313.434725"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "75"
-            endingLineNumber = "75"
-            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -645,7 +613,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CleverVibes/VibeDisplayViewController.swift"
-            timestampString = "517507727.876567"
+            timestampString = "558724418.315765"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "154"
@@ -661,7 +629,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CleverVibes/VibeWriteArtSelectionViewController.swift"
-            timestampString = "514918077.2384"
+            timestampString = "558724418.315842"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "21"
@@ -677,11 +645,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CleverVibes/VibeWriteViewController.swift"
-            timestampString = "515518832.913389"
+            timestampString = "558724418.315907"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "116"
-            endingLineNumber = "116"
+            startingLineNumber = "115"
+            endingLineNumber = "115"
             landmarkName = "collectionView(_:didSelectItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -699,22 +667,6 @@
             startingLineNumber = "113"
             endingLineNumber = "113"
             landmarkName = "loadAllVibes()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CleverVibes/GalleryCollectionViewController.swift"
-            timestampString = "515512810.582932"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "33"
-            endingLineNumber = "33"
-            landmarkName = "reloadData()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -757,7 +709,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CleverVibes/VibeDisplayViewController.swift"
-            timestampString = "517507727.876567"
+            timestampString = "558724418.316403"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "81"
@@ -981,7 +933,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CleverVibes/VibeUploadController.swift"
-            timestampString = "515446815.100482"
+            timestampString = "548821037.5353431"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "126"
@@ -997,7 +949,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CleverVibes/VibeUploadController.swift"
-            timestampString = "515446441.76211"
+            timestampString = "548821037.535471"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "115"
@@ -1013,7 +965,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CleverVibes/VibeUploadController.swift"
-            timestampString = "515446441.76211"
+            timestampString = "548821037.535547"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "107"
@@ -1029,7 +981,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CleverVibes/VibeUploadController.swift"
-            timestampString = "515446815.100482"
+            timestampString = "548821037.535615"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "144"
@@ -1045,7 +997,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CleverVibes/VibeUploadController.swift"
-            timestampString = "515446815.100482"
+            timestampString = "548821037.535677"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "157"
@@ -1061,7 +1013,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CleverVibes/VibeUploadController.swift"
-            timestampString = "515446441.76211"
+            timestampString = "548821037.535741"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "122"
@@ -1108,22 +1060,6 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "CleverVibes/GalleryCollectionViewController.swift"
-            timestampString = "515512810.582932"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
-            landmarkName = "viewDidLoad()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
             filePath = "CleverVibes/ScoreTableViewController.swift"
             timestampString = "515084777.30387"
             startingColumnNumber = "9223372036854775807"
@@ -1141,7 +1077,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CleverVibes/VibePageViewController.swift"
-            timestampString = "515094185.8815"
+            timestampString = "558724418.316983"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "32"
@@ -1221,7 +1157,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CleverVibes/VibeUploadController.swift"
-            timestampString = "515446260.496033"
+            timestampString = "548821037.5361691"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "81"
@@ -1317,12 +1253,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CleverVibes/VibeWriteViewController.swift"
-            timestampString = "515519148.838905"
+            timestampString = "558724418.317349"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "147"
-            endingLineNumber = "147"
+            startingLineNumber = "146"
+            endingLineNumber = "146"
             landmarkName = "textView(_:shouldChangeTextIn:replacementText:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CleverVibes/VibeWriteViewController.swift"
+            timestampString = "558724418.317785"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "171"
+            endingLineNumber = "171"
+            landmarkName = "dismissKeyboard()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

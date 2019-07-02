@@ -74,7 +74,7 @@ class VibeUploadController{
         var debugToken = VibeUploadController.sharedInstance.debugJoshToken
         
         let header = ["Authorization" : debugToken];
-        let targetURL = String("https://api.contentful.com/spaces/\(spaceId)/entries/\(vibe.uuid)")!;
+        let targetURL = String("https://api.contentful.com/spaces/\(spaceId)/entries/\(vibe.uuid)");
         Alamofire.request(targetURL, method: .get,parameters:nil, encoding: JSONEncoding.default, headers: header).responseJSON { response in
             print(response.request as Any)  // original URL request
             print(response.response as Any) // URL response
@@ -107,7 +107,7 @@ class VibeUploadController{
         
         let parameters: [String:Any] = makeVibeJsonDict(obj: vibe);
         
-        let targetURL = String("https://api.contentful.com/spaces/\(spaceId)/entries/\(vibe.uuid)")!;
+        let targetURL = String("https://api.contentful.com/spaces/\(spaceId)/entries/\(vibe.uuid)");
         
         Alamofire.request(targetURL, method: .put,parameters:parameters, encoding: JSONEncoding.default, headers: header).responseJSON { response in
             print(response.request as Any)  // original URL request
@@ -148,7 +148,7 @@ class VibeUploadController{
                       "X-Contentful-Version": "\(version)"]
 //        let parameters: [String:Any] = ["test":""]
         
-        let targetURL = String("https://api.contentful.com/spaces/\(spaceId)/entries/\(entryId)/published")!;
+        let targetURL = String("https://api.contentful.com/spaces/\(spaceId)/entries/\(entryId)/published");
         
         Alamofire.request(targetURL, method: .put, encoding: JSONEncoding.default, headers: header).responseJSON { response in
             print(response.request as Any)  // original URL request

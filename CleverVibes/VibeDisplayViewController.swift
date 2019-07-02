@@ -62,8 +62,8 @@ class VibeDisplayViewController:UIViewController,UICollectionViewDelegate{
         }else{
             vibeLabel.text = vibe!.clue
             
-            var alreadyAnsweredList = ScoreController.shareScoreInstance.getUsedVibes()
-            var userCreatedList = ScoreController.shareScoreInstance.getPersonalVibes()
+            let alreadyAnsweredList = ScoreController.shareScoreInstance.getUsedVibes()
+            let userCreatedList = ScoreController.shareScoreInstance.getPersonalVibes()
             if(alreadyAnsweredList.contains(vibe!.uuid)){
                 
                 answerButton.setTitle("I already answered!", for: UIControlState.disabled);
@@ -94,12 +94,12 @@ class VibeDisplayViewController:UIViewController,UICollectionViewDelegate{
         
         artGridDataSource.setupWithGalleryName(galleryName: galleryName);
         galleryLabel.text = clipGalleryName(name: galleryName)
-        var button = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: "goBack")
+      var button = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: #selector(goBack))
         self.navigationItem.backBarButtonItem = button
         
     }
     
-    func goBack()
+  @objc func goBack()
     {
         self.navigationController?.popViewController(animated: true)
     }

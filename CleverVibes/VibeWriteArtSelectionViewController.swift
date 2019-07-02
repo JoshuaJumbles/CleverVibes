@@ -21,14 +21,14 @@ class VibeWriteArtSelectionViewController:UIViewController{
         collectionView.dataSource = dataSource;
         collectionView.delegate = delegate;
         
-        var nib = UINib(nibName: "ArtGridCell", bundle: Bundle.main)
+      let nib = UINib(nibName: "ArtGridCell", bundle: Bundle.main)
         collectionView.register(nib, forCellWithReuseIdentifier: "artCell")
-        var button = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: "goBack")
+      let button = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: #selector(goBack))
         self.navigationItem.backBarButtonItem = button
         
     }
     
-    func goBack()
+  @objc func goBack()
     {
         self.navigationController?.popViewController(animated: true)
     }

@@ -38,20 +38,19 @@ class VibeWriteViewController:UIViewController,UICollectionViewDelegate,UITextVi
     
     override func viewDidLoad() {
         
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+      let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action:#selector(dismissKeyboard))
         
         //Uncomment the line below if you want the tap not not interfere and cancel other interactions.
         tap.cancelsTouchesInView = false
-        
-        navigationController?.navigationBar.backItem
-        
+      
+      
         view.addGestureRecognizer(tap)
-        var button = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: "goBack")
+      let button = UIBarButtonItem(title: "Back", style: UIBarButtonItemStyle.plain, target: self, action: #selector(goBack))
         self.navigationItem.backBarButtonItem = button
         
     }
     
-    func goBack()
+  @objc func goBack()
     {
         self.navigationController?.popViewController(animated: true)
     }
@@ -139,7 +138,7 @@ class VibeWriteViewController:UIViewController,UICollectionViewDelegate,UITextVi
     
     func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
         if(text == "\n"){
-            dismissKeyboard();
+            dismissKeyboard()
             return false;
         }
         
@@ -168,7 +167,7 @@ class VibeWriteViewController:UIViewController,UICollectionViewDelegate,UITextVi
     }
     
 
-    func dismissKeyboard(){
+  @objc func dismissKeyboard(){
         view.endEditing(true)
         
     }
@@ -176,7 +175,7 @@ class VibeWriteViewController:UIViewController,UICollectionViewDelegate,UITextVi
     func isDoneButtonAvailable()->Bool{
         let available = chosenArtObject != nil &&
                         textView.text != nil &&
-                        textView.text.characters.count != 0 &&
+                        !textView.text.isEmpty &&
                         hasTouchedTextView
         return available
     }
